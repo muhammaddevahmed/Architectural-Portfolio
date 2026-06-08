@@ -1,0 +1,913 @@
+﻿---
+// [id].astro - Project Detail Page
+// Enhanced project showcase with rich content display
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project: any) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+// Get all projects for related section
+const allProjects = await getCollection('projects');
+const relatedProjects = allProjects
+  .filter((p: any) => p.id !== project.id && p.data.category === project.data.category)
+  .slice(0, 2);
+
+// Project specs with all available data
+const projectSpecs = {
+  client: project.data.client || 'Confidential',
+  year: project.data.year || '2024',
+  location: project.data.location || 'San Francisco, CA',
+  area: project.data.area || '2,500 sq ft',
+  status: project.data.status || 'Completed'
+};
+
+// Calculate read time based on content length
+const contentLength = project.body?.length || 0;
+const readTime = Math.max(3, Math.ceil(contentLength / 2000));
+---
+
+<Layout title={`${project.data.title} | STUDIO`} description={project.data.description}>
+  
+  <article class="project-detail">
+    
+    {/* Hero Section */}
+    <div class="hero-section">
+      <div class="container">
+        <div class="hero-breadcrumb">
+          <a href="/projects">Projects</a>
+          <span>/</span>
+          <span>{project.data.category}</span>
+        </div>
+        
+        <h1 class="hero-title">{project.data.title}</h1>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span>{readTime} min read</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="12" cy="9" r="3" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+            <span>{projectSpecs.location}</span>
+          </div>
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M8 2V6M16 2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span>{projectSpecs.year}</span>
+          </div>
+          {project.data.gallery && (
+            <div class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M8 10C9.1046 10 10 9.10457 10 8C10 6.89543 9.1046 6 8 6C6.8954 6 6 6.89543 6 8C6 9.10457 6.8954 10 8 10Z" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M2 16L8 10L14 16L20 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+              <span>{project.data.gallery?.length || 0} images</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* Hero Image */}
+    <div class="hero-image-wrapper">
+      <div class="hero-image-container">
+        <img 
+          src={project.data.image} 
+          alt={project.data.title} 
+          class="hero-image"
+          id="mainImage"
+        />
+        <button class="zoom-btn" id="zoomBtn" aria-label="Zoom image">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M15 15L21 21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M8 10H12M10 8V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="hero-image-caption">{project.data.title}, {projectSpecs.location}</div>
+    </div>
+
+    {/* Content Layout */}
+    <div class="content-section">
+      <div class="container">
+        <div class="content-layout">
+          
+          {/* Main Content */}
+          <div class="main-content">
+            <div class="prose-container">
+              <Content />
+            </div>
+          </div>
+          
+          {/* Project Info Sidebar */}
+          <aside class="project-sidebar">
+            <div class="sidebar-card">
+              <h3 class="sidebar-title">Project Details</h3>
+              
+              <div class="specs-list">
+                <div class="spec-item">
+                  <span class="spec-label">Client</span>
+                  <span class="spec-value">{projectSpecs.client}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Year</span>
+                  <span class="spec-value">{projectSpecs.year}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Location</span>
+                  <span class="spec-value">{projectSpecs.location}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Area</span>
+                  <span class="spec-value">{projectSpecs.area}</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Status</span>
+                  <span class="spec-value status-badge">{projectSpecs.status}</span>
+                </div>
+              </div>
+              
+              <div class="sidebar-divider"></div>
+              
+              <div class="sidebar-actions">
+                <a href="/contact" class="sidebar-btn primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 8L10.5 13.5C11.2 14 12.8 14 13.5 13.5L21 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
+                  Inquire About This Project
+                </a>
+              </div>
+            </div>
+            
+           
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    {/* Related Projects */}
+    {relatedProjects.length > 0 && (
+      <section class="related-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Related Projects</h2>
+            <p class="section-subtitle">Explore more work in {project.data.category}</p>
+          </div>
+          
+          <div class="related-grid">
+            {relatedProjects.map((related: any) => (
+              <a href={`/projects/${related.id}`} class="related-card">
+                <div class="related-image-wrapper">
+                  <img 
+                    src={related.data.image} 
+                    alt={related.data.title} 
+                    class="related-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="related-info">
+                  <h3 class="related-title">{related.data.title}</h3>
+                  <p class="related-category">{related.data.category}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Navigation */}
+    <div class="nav-section">
+      <div class="container">
+        <div class="nav-buttons">
+          <a href="/projects" class="nav-link back">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M19 12H5M5 12L12 5M5 12L12 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Back to Projects
+          </a>
+          <a href="/contact" class="nav-link next">
+            Start a Project
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Lightbox Modal */}
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <img id="lightboxImg" class="lightbox-image" alt="Enlarged view" />
+    </div>
+    
+  </article>
+</Layout>
+
+<script>
+  // Lightbox functionality
+  function initLightbox() {
+    const zoomBtn = document.getElementById('zoomBtn');
+    const mainImage = document.getElementById('mainImage');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    
+    if (!zoomBtn || !mainImage || !lightbox || !lightboxImg || !lightboxClose) return;
+    
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    zoomBtn.addEventListener('click', () => {
+      openLightbox(mainImage.src);
+    });
+    
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  }
+  
+  // Share functionality
+  function initShare() {
+    const shareTwitter = document.getElementById('shareTwitter');
+    const shareLinkedin = document.getElementById('shareLinkedin');
+    const copyLink = document.getElementById('copyLink');
+    const currentUrl = window.location.href;
+    const projectTitle = document.querySelector('.hero-title')?.textContent || '';
+    
+    if (shareTwitter) {
+      shareTwitter.addEventListener('click', () => {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(projectTitle)}&url=${encodeURIComponent(currentUrl)}`, '_blank');
+      });
+    }
+    
+    if (shareLinkedin) {
+      shareLinkedin.addEventListener('click', () => {
+        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(projectTitle)}`, '_blank');
+      });
+    }
+    
+    if (copyLink) {
+      copyLink.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(currentUrl);
+          const originalHtml = copyLink.innerHTML;
+          copyLink.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>';
+          setTimeout(() => {
+            copyLink.innerHTML = originalHtml;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    }
+  }
+  
+  // Smooth scroll for anchor links
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  }
+  
+  initLightbox();
+  initShare();
+  initSmoothScroll();
+  
+  document.addEventListener('astro:page-load', () => {
+    initLightbox();
+    initShare();
+    initSmoothScroll();
+  });
+</script>
+
+<style is:global>
+  /* ============================================
+     PROJECT DETAIL PAGE - Enhanced Rich Content
+     ============================================ */
+  
+  .project-detail {
+    position: relative;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+  }
+  
+  /* ===== Hero Section ===== */
+  .hero-section {
+    padding: 4rem 0 2rem;
+  }
+  
+  .hero-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-breadcrumb a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .hero-breadcrumb a:hover {
+    color: #A078FF;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+  
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* ===== Hero Image ===== */
+  .hero-image-wrapper {
+    margin: 2rem 0 4rem;
+  }
+  
+  .hero-image-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .hero-image-caption {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.75rem;
+  }
+  
+  .zoom-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .zoom-btn:hover {
+    background: rgba(160, 120, 255, 0.8);
+    transform: scale(1.05);
+  }
+  
+  /* ===== Content Layout ===== */
+  .content-section {
+    padding: 2rem 0 4rem;
+  }
+  
+  .content-layout {
+    display: flex;
+    gap: 4rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .content-layout {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+  
+  .main-content {
+    flex: 2;
+  }
+  
+  /* Enhanced Prose Styles for Rich Content */
+  .prose-container {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .prose-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    color: #FFFFFF;
+  }
+  
+  .prose-container h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+  }
+  
+  .prose-container h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #FFFFFF;
+  }
+  
+  .prose-container h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
+    color: #A078FF;
+  }
+  
+  .prose-container p {
+    margin-bottom: 1.25em;
+  }
+  
+  .prose-container a {
+    color: #A078FF;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(160, 120, 255, 0.3);
+    transition: border-color 0.2s ease;
+  }
+  
+  .prose-container a:hover {
+    border-bottom-color: #A078FF;
+  }
+  
+  .prose-container ul,
+  .prose-container ol {
+    margin: 1.25em 0;
+    padding-left: 1.5em;
+  }
+  
+  .prose-container li {
+    margin: 0.5em 0;
+  }
+  
+  .prose-container blockquote {
+    border-left: 3px solid #A078FF;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .prose-container code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+  
+  .prose-container pre {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .prose-container pre code {
+    background: none;
+    padding: 0;
+  }
+  
+  .prose-container img {
+    border-radius: 0.75rem;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .prose-container hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), transparent);
+    margin: 2rem 0;
+  }
+  
+  /* Tables */
+  .prose-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+  
+  .prose-container th,
+  .prose-container td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .prose-container th {
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+  }
+  
+  /* ===== Project Sidebar ===== */
+  .project-sidebar {
+    flex: 1;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  
+  @media (max-width: 1024px) {
+    .project-sidebar {
+      position: static;
+    }
+  }
+  
+  .sidebar-card,
+  .share-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sidebar-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+  }
+  
+  .specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+  }
+  
+  .spec-label {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .spec-value {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+  
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    background: rgba(120, 255, 210, 0.1);
+    border-radius: 50px;
+    color: #78FFD2;
+  }
+  
+  .sidebar-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 1rem 0;
+  }
+  
+  .sidebar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .sidebar-btn.primary {
+    background: linear-gradient(135deg, #A078FF, #78FFD2);
+    color: #0A0A0E;
+  }
+  
+  .sidebar-btn.primary:hover {
+    transform: translateY(-2px);
+    gap: 0.75rem;
+  }
+  
+  .share-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .share-btn:hover {
+    transform: translateY(-2px);
+    background: #A078FF;
+    border-color: #A078FF;
+    color: #FFFFFF;
+  }
+  
+  /* ===== Related Projects ===== */
+  .related-section {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, transparent, rgba(160, 120, 255, 0.03), transparent);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .section-subtitle {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .related-card {
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .related-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .related-image-wrapper {
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    aspect-ratio: 16 / 10;
+  }
+  
+  .related-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .related-card:hover .related-image {
+    transform: scale(1.05);
+  }
+  
+  .related-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s ease;
+  }
+  
+  .related-card:hover .related-title {
+    color: #A078FF;
+  }
+  
+  .related-category {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* ===== Navigation ===== */
+  .nav-section {
+    padding: 4rem 0;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    background: rgba(160, 120, 255, 0.1);
+    border-color: rgba(160, 120, 255, 0.3);
+    color: #A078FF;
+  }
+  
+  .nav-link.back:hover {
+    transform: translateX(-4px);
+  }
+  
+  .nav-link.next:hover {
+    transform: translateX(4px);
+  }
+  
+  /* ===== Lightbox ===== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+  }
+  
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .lightbox-close:hover {
+    color: #A078FF;
+    transform: scale(1.1);
+  }
+  
+  .lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .hero-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .prose-container {
+      font-size: 1rem;
+    }
+    
+    .prose-container h1 {
+      font-size: 1.75rem;
+    }
+    
+    .prose-container h2 {
+      font-size: 1.5rem;
+    }
+    
+    .prose-container h3 {
+      font-size: 1.25rem;
+    }
+    
+    .prose-container table {
+      font-size: 0.75rem;
+    }
+    
+    .prose-container th,
+    .prose-container td {
+      padding: 0.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,822 @@
+﻿---
+// [id].astro - Journal Detail Page
+// Clean blog post layout with TOC, share buttons, and author section
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('journal');
+  return posts.map((post: any) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+// Format date
+const formattedDate = post.data.date.toLocaleDateString('en-US', { 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+});
+
+// Estimate read time (assuming 200 words per minute)
+const readTime = post.data.readTime || Math.ceil((post.body?.length || 0) / 200 / 60) || 5;
+
+// Get headings for table of contents (h2 and h3)
+const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
+---
+
+<Layout title={`${post.data.title} | STUDIO`} description={post.data.description}>
+  <article class="journal-detail">
+    
+    {/* Hero Section */}
+    <div class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="post-meta">
+            <time datetime={post.data.date.toISOString()} class="post-date">
+              {formattedDate}
+            </time>
+            <span class="meta-separator">•</span>
+            <span class="read-time">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+              {readTime} min read
+            </span>
+          </div>
+          
+          <h1 class="post-title">{post.data.title}</h1>
+          
+          {post.data.description && (
+            <p class="post-excerpt">{post.data.description}</p>
+          )}
+          
+          <div class="post-tags">
+            {(post.data.tags || []).map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      {/* Hero Image */}
+      {post.data.heroImage && (
+        <div class="hero-image">
+          <img 
+            src={post.data.heroImage} 
+            alt={post.data.title}
+            loading="eager"
+          />
+          {post.data.imageCaption && (
+            <div class="image-caption">{post.data.imageCaption}</div>
+          )}
+        </div>
+      )}
+    </div>
+
+    {/* Content Section with Sidebar */}
+    <div class="content-section">
+      <div class="container">
+        <div class="content-layout">
+          
+          {/* Table of Contents Sidebar */}
+          {tocHeadings.length > 0 && (
+            <aside class="toc-sidebar">
+              <div class="toc-wrapper">
+                <div class="toc-header">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    <path d="M8 8V4M12 8V4M16 8V4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
+                  <span>Contents</span>
+                </div>
+                <nav class="toc-nav">
+                  {tocHeadings.map((heading: any) => (
+                    <a 
+                      href={`#${heading.slug}`} 
+                      class={`toc-link depth-${heading.depth}`}
+                      data-heading-id={heading.slug}
+                    >
+                      {heading.text}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+          )}
+          
+          {/* Main Content */}
+          <div class="main-content">
+            <div class="prose-container">
+              <Content />
+            </div>
+            
+            {/* Share Section */}
+            <div class="share-section">
+              <div class="share-divider"></div>
+              <div class="share-content">
+                <span class="share-label">Share</span>
+                <div class="share-buttons">
+                  <button class="share-btn twitter" id="shareTwitter" aria-label="Share on Twitter">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M23 3C22.1 3.9 21 4.4 19.8 4.6C19.1 3.9 18.1 3.5 17 3.5C14.9 3.5 13.2 5.2 13.2 7.3C13.2 7.6 13.2 7.9 13.3 8.2C10.2 8 7.5 6.6 5.6 4.3C4.8 5.6 4.8 7.2 5.7 8.3C4.9 8.3 4.2 8.1 3.6 7.7C3.6 9.3 4.8 10.7 6.3 11C5.6 11.2 4.8 11.2 4.1 11C4.5 12.4 5.8 13.4 7.3 13.4C6.1 14.3 4.6 14.8 3 14.8C2.7 14.8 2.3 14.8 2 14.7C3.5 15.7 5.3 16.3 7.2 16.3C14 16.3 17.6 10.7 17.6 5.8C17.6 5.6 17.6 5.4 17.6 5.2C18.5 4.5 19.3 3.8 20 3H23Z" fill="currentColor"/>
+                    </svg>
+                  </button>
+                  <button class="share-btn linkedin" id="shareLinkedin" aria-label="Share on LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M16 8C18.2091 8 20 9.79086 20 12V20H16V12C16 10.8954 15.1046 10 14 10C12.8954 10 12 10.8954 12 12V20H8V12C8 9.79086 9.79086 8 12 8C13.1046 8 14 8.89543 14 10C14 8.89543 14.8954 8 16 8Z" fill="currentColor"/>
+                      <rect x="4" y="8" width="4" height="12" fill="currentColor"/>
+                      <circle cx="6" cy="4" r="2" fill="currentColor"/>
+                    </svg>
+                  </button>
+                  <button class="share-btn copy" id="copyLinkBtn" aria-label="Copy link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5H6C4.89543 5 4 5.89543 4 7V19C4 20.1046 4.89543 21 6 21H16C17.1046 21 18 20.1046 18 19V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M10 13H20M20 13L16 9M20 13L16 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            {/* Author Section */}
+            {post.data.author && (
+              <div class="author-section">
+                <div class="author-card">
+                  {post.data.authorAvatar && (
+                    <img 
+                      src={post.data.authorAvatar} 
+                      alt={post.data.author}
+                      class="author-avatar"
+                    />
+                  )}
+                  <div class="author-info">
+                    <h4 class="author-name">{post.data.author}</h4>
+                    {post.data.authorBio && (
+                      <p class="author-bio">{post.data.authorBio}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {/* Navigation */}
+            <div class="post-navigation">
+              <a href="/journal" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Back to Journal
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </article>
+</Layout>
+
+<script>
+  // Copy link functionality
+  const copyBtn = document.getElementById('copyLinkBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const originalHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>';
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHtml;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+    });
+  }
+  
+  // Share functionality
+  function initShare() {
+    const shareTwitter = document.getElementById('shareTwitter');
+    const shareLinkedin = document.getElementById('shareLinkedin');
+    const currentUrl = window.location.href;
+    const postTitle = document.querySelector('.post-title')?.textContent || '';
+    
+    if (shareTwitter) {
+      shareTwitter.addEventListener('click', () => {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(postTitle)}&url=${encodeURIComponent(currentUrl)}`, '_blank');
+      });
+    }
+    
+    if (shareLinkedin) {
+      shareLinkedin.addEventListener('click', () => {
+        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(postTitle)}`, '_blank');
+      });
+    }
+  }
+  
+  // Table of contents scroll spy
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const headings = document.querySelectorAll('.prose-container h2, .prose-container h3');
+  
+  if (tocLinks.length > 0 && headings.length > 0) {
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -20% 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-heading-id') === id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+    
+    headings.forEach(heading => {
+      if (heading.id) {
+        observer.observe(heading);
+      }
+    });
+  }
+  
+  // Smooth scroll for TOC links
+  tocLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('data-heading-id');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        history.pushState(null, '', `#${targetId}`);
+      }
+    });
+  });
+  
+  // Initialize share
+  initShare();
+  
+  // Re-initialize on Astro page load
+  document.addEventListener('astro:page-load', () => {
+    initShare();
+  });
+</script>
+
+<style is:global>
+  /* ============================================
+     JOURNAL DETAIL PAGE - Clean & Professional
+     ============================================ */
+  
+  .journal-detail {
+    position: relative;
+  }
+  
+  /* ===== Hero Section ===== */
+  .hero-section {
+    padding: 6rem 0 2rem;
+    background: linear-gradient(180deg, rgba(10, 10, 14, 0.8) 0%, rgba(10, 10, 14, 0) 100%);
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 4rem 0 1rem;
+    }
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .post-date {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  
+  .meta-separator {
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .read-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  
+  .post-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+  }
+  
+  @media (max-width: 768px) {
+    .post-title {
+      font-size: 2.25rem;
+    }
+  }
+  
+  .post-excerpt {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+  }
+  
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .hero-image {
+    margin-top: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .image-caption {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 0.75rem;
+  }
+  
+  /* ===== Content Section ===== */
+  .content-section {
+    padding: 4rem 0 6rem;
+  }
+  
+  @media (max-width: 768px) {
+    .content-section {
+      padding: 2rem 0 4rem;
+    }
+  }
+  
+  .content-layout {
+    display: flex;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 1024px) {
+    .content-layout {
+      flex-direction: column;
+    }
+  }
+  
+  /* Table of Contents Sidebar */
+  .toc-sidebar {
+    flex-shrink: 0;
+    width: 260px;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+  
+  @media (max-width: 1024px) {
+    .toc-sidebar {
+      width: 100%;
+      position: static;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .toc-wrapper {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+  }
+  
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 0.75rem;
+  }
+  
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .toc-link {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0.25rem 0;
+    line-height: 1.4;
+  }
+  
+  .toc-link.depth-2 {
+    padding-left: 0;
+  }
+  
+  .toc-link.depth-3 {
+    padding-left: 1rem;
+    font-size: 0.8125rem;
+  }
+  
+  .toc-link:hover {
+    color: #A078FF;
+  }
+  
+  .toc-link.active {
+    color: #A078FF;
+    font-weight: 500;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .prose-container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .prose-container {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .prose-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+  }
+  
+  .prose-container h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+  }
+  
+  .prose-container h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #FFFFFF;
+  }
+  
+  .prose-container h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
+    color: #A078FF;
+  }
+  
+  .prose-container p {
+    margin-bottom: 1.25em;
+  }
+  
+  .prose-container a {
+    color: #A078FF;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(160, 120, 255, 0.3);
+    transition: border-color 0.2s ease;
+  }
+  
+  .prose-container a:hover {
+    border-bottom-color: #A078FF;
+    color: #78FFD2;
+  }
+  
+  .prose-container strong {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+  
+  .prose-container code {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+  
+  .prose-container pre {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .prose-container pre code {
+    background: none;
+    padding: 0;
+  }
+  
+  .prose-container blockquote {
+    border-left: 3px solid #A078FF;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .prose-container img {
+    border-radius: 0.75rem;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .prose-container ul,
+  .prose-container ol {
+    margin: 1.25rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  .prose-container li {
+    margin: 0.5rem 0;
+  }
+  
+  .prose-container hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08), transparent);
+    margin: 2rem 0;
+  }
+  
+  /* Tables */
+  .prose-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+  
+  .prose-container th,
+  .prose-container td {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .prose-container th {
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 600;
+  }
+  
+  /* Share Section */
+  .share-section {
+    margin: 3rem auto;
+    max-width: 750px;
+  }
+  
+  .share-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08), transparent);
+    margin-bottom: 1.5rem;
+  }
+  
+  .share-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .share-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .share-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .share-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .share-btn.twitter:hover {
+    background: #1DA1F2;
+    border-color: #1DA1F2;
+    color: #FFFFFF;
+  }
+  
+  .share-btn.linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+    color: #FFFFFF;
+  }
+  
+  .share-btn.copy:hover {
+    background: #A078FF;
+    border-color: #A078FF;
+    color: #FFFFFF;
+  }
+  
+  /* Author Section */
+  .author-section {
+    margin: 3rem auto;
+    max-width: 750px;
+  }
+  
+  .author-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+  
+  .author-card:hover {
+    border-color: rgba(160, 120, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  
+  @media (max-width: 480px) {
+    .author-card {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .author-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 0.25rem;
+  }
+  
+  .author-bio {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+  }
+  
+  /* Post Navigation */
+  .post-navigation {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .back-link:hover {
+    background: rgba(160, 120, 255, 0.08);
+    border-color: rgba(160, 120, 255, 0.2);
+    color: #A078FF;
+    transform: translateX(-4px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .post-excerpt {
+      font-size: 1rem;
+    }
+    
+    .prose-container {
+      font-size: 1rem;
+    }
+    
+    .prose-container h1 {
+      font-size: 1.75rem;
+    }
+    
+    .prose-container h2 {
+      font-size: 1.5rem;
+    }
+    
+    .prose-container h3 {
+      font-size: 1.25rem;
+    }
+    
+    .prose-container table {
+      font-size: 0.75rem;
+    }
+    
+    .prose-container th,
+    .prose-container td {
+      padding: 0.5rem;
+    }
+  }
+</style>

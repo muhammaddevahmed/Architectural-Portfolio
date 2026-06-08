@@ -1,0 +1,640 @@
+﻿---
+// Header.astro - Professional Glassmorphism Header with Icons
+// Fixed: No blur icons, no duplicate swipe navbar
+---
+
+<!-- 
+  ============================================
+  PROFESSIONAL HEADER - FULLY RESPONSIVE
+  Fixed: Mobile menu no blur, no duplicate nav
+  ============================================
+-->
+
+<header class="header">
+  <div class="header-container">
+    <div class="header-inner">
+      
+      <!-- Logo Area with Icon -->
+      <div class="logo-area">
+        <a href="/" class="logo-link" aria-label="Home">
+          <div class="logo-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 2L2 9L16 16L30 9L16 2Z" stroke="url(#logoGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 9V23L16 30L30 23V9" stroke="url(#logoGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 16V30" stroke="url(#logoGradient)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 12.5L16 16L23 12.5" stroke="url(#logoGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="logoGradient" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#A078FF"/>
+                  <stop offset="1" stop-color="#78FFD2"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-main">STUDIO</span>
+            <span class="logo-badge">EST. 2024</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <a href="/projects" class="nav-link">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span>Projects</span>
+          <span class="nav-indicator"></span>
+        </a>
+        
+        <a href="/journal" class="nav-link">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6H20M4 12H20M4 18H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="16" y="14" width="6" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M19 14V11C19 9.89543 18.1046 9 17 9H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Journal</span>
+          <span class="nav-indicator"></span>
+        </a>
+        
+        <a href="/about" class="nav-link">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 20V19C5 15.6863 7.68629 13 11 13H13C16.3137 13 19 15.6863 19 19V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M19 4.5C20.5 5.5 21 7 21 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M5 4.5C3.5 5.5 3 7 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>About</span>
+          <span class="nav-indicator"></span>
+        </a>
+        
+        <a href="/contact" class="nav-link">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M3 8L10.5 13.5C11.2 14 12.8 14 13.5 13.5L21 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 12L3 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M17 12L21 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Contact</span>
+          <span class="nav-indicator"></span>
+        </a>
+      </nav>
+
+      <!-- Right Side Actions - CTA Button (Desktop only) -->
+      <div class="header-actions">
+        <a href="/contact" class="btn-cta">
+          <span>Let's Talk</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu (No swipe, only hamburger) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <a href="/projects" class="mobile-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span>Projects</span>
+        </a>
+        <a href="/journal" class="mobile-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6H20M4 12H20M4 18H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="16" y="14" width="6" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M19 14V11C19 9.89543 18.1046 9 17 9H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Journal</span>
+        </a>
+        <a href="/about" class="mobile-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 20V19C5 15.6863 7.68629 13 11 13H13C16.3137 13 19 15.6863 19 19V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>About</span>
+        </a>
+        <a href="/contact" class="mobile-nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M3 8L10.5 13.5C11.2 14 12.8 14 13.5 13.5L21 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span>Contact</span>
+        </a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <a href="/contact" class="mobile-cta">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style is:global>
+  /* ============================================
+     HEADER STYLES - NO BLUR, NO SWIPE
+     Fixed for mobile devices
+     ============================================ */
+  
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #0A0A0E;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .header.scrolled {
+    background: #0A0A0E;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10000;
+  }
+
+  @media (max-width: 1024px) {
+    .header-container {
+      padding: 0 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 0 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-container {
+      padding: 0 1rem;
+    }
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .header-inner {
+      height: 70px;
+    }
+  }
+
+  /* ===== LOGO AREA ===== */
+  .logo-area {
+    flex-shrink: 0;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  @media (max-width: 480px) {
+    .logo-link {
+      gap: 0.5rem;
+    }
+  }
+
+  .logo-link:hover {
+    opacity: 0.9;
+  }
+
+  .logo-icon svg {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .logo-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .logo-main {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #A078FF, #78FFD2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @media (max-width: 480px) {
+    .logo-main {
+      font-size: 1.1rem;
+    }
+  }
+
+  .logo-badge {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 480px) {
+    .logo-badge {
+      font-size: 0.55rem;
+      display: none;
+    }
+  }
+
+  /* ===== DESKTOP NAVIGATION ===== */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .nav-desktop {
+      display: none;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-icon {
+    opacity: 0.7;
+  }
+
+  .nav-link:hover .nav-icon {
+    opacity: 1;
+  }
+
+  .nav-link.active {
+    color: #A078FF;
+    background: rgba(160, 120, 255, 0.1);
+  }
+
+  .nav-link.active .nav-icon {
+    opacity: 1;
+    color: #A078FF;
+  }
+
+  .nav-indicator {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #A078FF, #78FFD2);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
+  }
+
+  .nav-link.active .nav-indicator {
+    width: 60%;
+  }
+
+  /* ===== HEADER ACTIONS ===== */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 1024px) {
+    .header-actions {
+      display: none;
+    }
+  }
+
+  .btn-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    background: linear-gradient(135deg, #A078FF, #78FFD2);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0A0A0E;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(160, 120, 255, 0.3);
+  }
+
+  .btn-cta:hover svg {
+    transform: translateX(3px);
+  }
+
+  .btn-cta svg {
+    transition: transform 0.2s ease;
+  }
+
+  /* ===== MOBILE MENU BUTTON ===== */
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10001;
+    position: relative;
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-menu-btn {
+      display: flex;
+    }
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-btn.open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .mobile-menu-btn.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* ===== MOBILE MENU - NO BLUR, NO SWIPE ===== */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0A0A0E;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    z-index: 9998;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    padding: 5rem 1.5rem 2rem;
+  }
+
+  @media (max-width: 480px) {
+    .mobile-menu-inner {
+      padding: 5rem 1.25rem 2rem;
+    }
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  @media (max-width: 480px) {
+    .mobile-nav-link {
+      padding: 0.875rem;
+      font-size: 1rem;
+    }
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:active {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    transform: translateX(4px);
+  }
+
+  .mobile-nav-link.active {
+    color: #A078FF;
+    background: rgba(160, 120, 255, 0.1);
+  }
+
+  .mobile-menu-footer {
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #A078FF, #78FFD2);
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0A0A0E;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-cta:active {
+    transform: scale(0.98);
+  }
+
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* ===== RESPONSIVE BREAKPOINTS ===== */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .nav-desktop {
+      gap: 0.25rem;
+    }
+    
+    .nav-link {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header-inner {
+      height: 70px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header-inner {
+      height: 65px;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    // DOM Elements
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const header = document.querySelector('.header');
+    
+    // Menu functions
+    function closeMenu() {
+      if (menuBtn) menuBtn.classList.remove('open');
+      if (mobileMenu) mobileMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      // Restore scroll position
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    function openMenu() {
+      if (menuBtn) menuBtn.classList.add('open');
+      if (mobileMenu) mobileMenu.classList.add('open');
+      document.body.classList.add('menu-open');
+    }
+
+    // Toggle menu on button click
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (mobileMenu.classList.contains('open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+
+    // Close menu when clicking a mobile nav link
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Header scroll effect
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+
+    // Set active nav link based on current path
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    function setActiveLink(links, path) {
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === path || (href !== '/' && path.startsWith(href) && href !== '/')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+    
+    setActiveLink(navLinks, currentPath);
+    setActiveLink(mobileNavLinks, currentPath);
+    
+    // Handle window resize - close mobile menu on resize to desktop
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 1024 && mobileMenu && mobileMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      }, 250);
+    });
+  })();
+</script>
