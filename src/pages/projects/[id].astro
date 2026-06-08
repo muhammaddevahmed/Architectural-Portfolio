@@ -53,31 +53,31 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
         <div class="hero-meta">
           <div class="meta-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
             <span>{readTime} min read</span>
           </div>
           <div class="meta-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5"/>
-              <circle cx="12" cy="9" r="3" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/>
             </svg>
             <span>{projectSpecs.location}</span>
           </div>
           <div class="meta-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-              <path d="M8 2V6M16 2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 2V6M16 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
             <span>{projectSpecs.year}</span>
           </div>
           {project.data.gallery && (
             <div class="meta-item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M8 10C9.1046 10 10 9.10457 10 8C10 6.89543 9.1046 6 8 6C6.8954 6 6 6.89543 6 8C6 9.10457 6.8954 10 8 10Z" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M2 16L8 10L14 16L20 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 10C9.1046 10 10 9.10457 10 8C10 6.89543 9.1046 6 8 6C6.8954 6 6 6.89543 6 8C6 9.10457 6.8954 10 8 10Z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 16L8 10L14 16L20 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
               <span>{project.data.gallery?.length || 0} images</span>
             </div>
@@ -97,9 +97,9 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
         />
         <button class="zoom-btn" id="zoomBtn" aria-label="Zoom image">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.5"/>
-            <path d="M15 15L21 21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            <path d="M8 10H12M10 8V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M15 15L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 10H12M10 8V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </button>
       </div>
@@ -151,8 +151,8 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
               <div class="sidebar-actions">
                 <a href="/contact" class="sidebar-btn primary">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 8L10.5 13.5C11.2 14 12.8 14 13.5 13.5L21 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M3 8L10.5 13.5C11.2 14 12.8 14 13.5 13.5L21 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
                   </svg>
                   Inquire About This Project
                 </a>
@@ -202,14 +202,14 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
         <div class="nav-buttons">
           <a href="/projects" class="nav-link back">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M19 12H5M5 12L12 5M5 12L12 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M19 12H5M5 12L12 5M5 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Back to Projects
           </a>
           <a href="/contact" class="nav-link next">
             Start a Project
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
         </div>
@@ -229,14 +229,14 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
   // Lightbox functionality
   function initLightbox() {
     const zoomBtn = document.getElementById('zoomBtn');
-    const mainImage = document.getElementById('mainImage');
+    const mainImage = document.getElementById('mainImage') as HTMLImageElement | null;
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement | null;
     const lightboxClose = document.getElementById('lightboxClose');
     
     if (!zoomBtn || !mainImage || !lightbox || !lightboxImg || !lightboxClose) return;
     
-    function openLightbox(src) {
+    function openLightbox(src: string) {
       lightboxImg.src = src;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -289,7 +289,7 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
         try {
           await navigator.clipboard.writeText(currentUrl);
           const originalHtml = copyLink.innerHTML;
-          copyLink.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>';
+          copyLink.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
           setTimeout(() => {
             copyLink.innerHTML = originalHtml;
           }, 2000);

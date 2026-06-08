@@ -38,12 +38,12 @@ The tower's most striking feature is its responsive exterior — a double-skin f
 
 Beyond the kinetic facade, Horizon Tower weaves nature throughout the workplace:
 
-| Level | Biophilic Feature | Impact |
-|-------|-------------------|--------|
-| Ground | Rainforest atrium with 15m living wall | 40% reduction in perceived stress |
-| Mid-level | Sky gardens every 6 floors | Natural ventilation zones |
-| Rooftop | Urban farm + solar canopy | On-site food production |
-| Facade | Integrated planter boxes | Biodiversity corridor |
+| Level     | Biophilic Feature                      | Impact                            |
+| --------- | -------------------------------------- | --------------------------------- |
+| Ground    | Rainforest atrium with 15m living wall | 40% reduction in perceived stress |
+| Mid-level | Sky gardens every 6 floors             | Natural ventilation zones         |
+| Rooftop   | Urban farm + solar canopy              | On-site food production           |
+| Facade    | Integrated planter boxes               | Biodiversity corridor             |
 
 ## Technical Innovation
 
@@ -61,16 +61,19 @@ The tower employs a diagrid structural system that offers exceptional efficiency
 Horizon Tower integrates cutting-edge building technology:
 
 **Occupant Experience**
+
 - AI-driven personalized environmental controls for each tenant
 - Touchless access throughout with facial recognition
 - Real-time air quality monitoring and purification
 
 **Energy Management**
+
 - 2,500 solar panels integrated into the facade's spandrels
 - Regenerative elevators that generate power during descent
 - Ice-based thermal storage for peak load shifting
 
 **Water Conservation**
+
 - Rainwater harvesting for 90% of landscape irrigation
 - Greywater recycling for cooling tower makeup
 - Low-flow fixtures reducing potable water use by 55%
@@ -86,13 +89,13 @@ Horizon Tower is targeting unprecedented environmental credentials:
 
 ### Energy Breakdown
 
-| System | Energy Use | Reduction vs. Baseline |
-|--------|------------|------------------------|
-| HVAC | 35 kWh/m²/year | 62% |
-| Lighting | 12 kWh/m²/year | 58% |
-| Elevators | 8 kWh/m²/year | 45% |
-| Plug Loads | 25 kWh/m²/year | 30% |
-| **Total** | **80 kWh/m²/year** | **52%** |
+| System     | Energy Use         | Reduction vs. Baseline |
+| ---------- | ------------------ | ---------------------- |
+| HVAC       | 35 kWh/m²/year     | 62%                    |
+| Lighting   | 12 kWh/m²/year     | 58%                    |
+| Elevators  | 8 kWh/m²/year      | 45%                    |
+| Plug Loads | 25 kWh/m²/year     | 30%                    |
+| **Total**  | **80 kWh/m²/year** | **52%**                |
 
 ## Workplace Design
 
@@ -104,6 +107,7 @@ The interior design prioritizes flexibility, wellness, and collaboration:
 Each floor is organized into distinct neighborhoods connected by a central "Main Street" circulation spine, encouraging movement and chance encounters.
 
 **Activity-Based Working**
+
 - Focus rooms for concentrated work
 - Collaboration zones with writable surfaces
 - Lounge areas for informal meetings
@@ -112,6 +116,7 @@ Each floor is organized into distinct neighborhoods connected by a central "Main
 
 **The Workplace Dashboard**
 Every employee has access to a personal dashboard showing:
+
 - Real-time energy consumption of their floor
 - Air quality metrics and thermal comfort
 - Occupancy patterns to optimize space usage
@@ -164,18 +169,21 @@ A double-height space with panoramic views, featuring a cafe, lounge seating, an
 An exclusive rooftop venue for tenant events, with indoor-outdoor flow, catering kitchen, and 360-degree views.
 
 **Wellness Center (Level 3)**
+
 - Full-service gym with personal training
 - Yoga and meditation studio
 - Spa treatment rooms
 - Bike storage with lockers and showers (for 200 bicycles)
 
 **Conference Center (Level 2)**
+
 - 200-person auditorium
 - Eight flexible meeting rooms
 - Video conferencing suites
 - Pre-function event space
 
 **Retail Plaza (Ground Level)**
+
 - Curated selection of food and beverage options
 - Convenience services (dry cleaning, pharmacy)
 - Public art installation by local artists
@@ -196,11 +204,11 @@ An exclusive rooftop venue for tenant events, with indoor-outdoor flow, catering
 
 ## Press Quotes
 
-> *"A masterclass in responsive architecture — Horizon Tower proves that sustainability and spectacle can coexist."* — Architectural Record
+> _"A masterclass in responsive architecture — Horizon Tower proves that sustainability and spectacle can coexist."_ — Architectural Record
 
-> *"The kinetic facade represents the future of high-performance building envelopes."* — The Straits Times
+> _"The kinetic facade represents the future of high-performance building envelopes."_ — The Straits Times
 
-> *"This isn't just a building; it's a statement about what commercial real estate can achieve."* — Singapore Business Review
+> _"This isn't just a building; it's a statement about what commercial real estate can achieve."_ — Singapore Business Review
 
 ## Project Team
 
@@ -216,4 +224,4 @@ An exclusive rooftop venue for tenant events, with indoor-outdoor flow, catering
 
 Horizon Tower reimagines what a commercial headquarters can be — not merely a place of work, but a living system that responds to its environment, nurtures its occupants, and contributes to the urban fabric. As construction progresses toward completion in late 2025, the tower stands as a model for sustainable high-rise design in tropical climates worldwide.
 
-*Leasing inquiries available for Q1 2026 occupancy. For more information, please contact our commercial leasing team.*
+_Leasing inquiries available for Q1 2026 occupancy. For more information, please contact our commercial leasing team._

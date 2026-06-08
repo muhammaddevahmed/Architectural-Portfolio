@@ -54,11 +54,11 @@ The villa occupies a south-facing slope with panoramic views of olive groves, vi
 
 The Mediterranean climate informed passive design strategies:
 
-| Season | Strategy | Benefit |
-|--------|----------|---------|
-| Summer (hot, dry) | Deep overhangs, cross-ventilation, thermal mass | Passive cooling without AC |
-| Winter (cool, wet) | South-facing glazing, insulated envelope | Solar gain reduces heating 60% |
-| Spring/Autumn (mild) | Operable windows, outdoor rooms | Natural ventilation year-round |
+| Season               | Strategy                                        | Benefit                        |
+| -------------------- | ----------------------------------------------- | ------------------------------ |
+| Summer (hot, dry)    | Deep overhangs, cross-ventilation, thermal mass | Passive cooling without AC     |
+| Winter (cool, wet)   | South-facing glazing, insulated envelope        | Solar gain reduces heating 60% |
+| Spring/Autumn (mild) | Operable windows, outdoor rooms                 | Natural ventilation year-round |
 
 ### Views & Orientation
 
@@ -72,23 +72,27 @@ The Mediterranean climate informed passive design strategies:
 ### Exterior Finishes
 
 **Pietra Serena Stone**
+
 - Local sandstone quarried 15km from site
 - Hand-chiseled finish on primary facade
 - Sawn finish for paving and retaining walls
 - Naturally weathers to softer tones over time
 
 **Handmade Terracotta**
+
 - Traditional Italian roof tiles
 - Natural clay with no artificial coloring
 - Integrated solar tiles on less visible roof plane
 
 **Bronze**
+
 - Window frames and door hardware
 - Rain screen details
 - Gutters and downspouts
 - Develops green patina in coastal air
 
 **Corten Steel**
+
 - Planters and screens
 - Retaining edge details
 - Agricultural aesthetic connects to rural context
@@ -96,23 +100,27 @@ The Mediterranean climate informed passive design strategies:
 ### Interior Finishes
 
 **Oak Timber**
+
 - Wide-plank flooring (brushed, matte oil)
 - Custom millwork and built-ins
 - Ceiling beams in main living areas
 - Harvested from FSC-certified forests
 
 **Tadelakt Plaster**
+
 - Traditional Moroccan lime plaster
 - Waterproof and seamless
 - Used in bathrooms and wet areas
 - Hand-applied by specialist artisans
 
 **Limestone**
+
 - Honed finish for fireplace surround
 - Tumbled finish for terrace paving
 - Locally sourced within 50km
 
 **Linen**
+
 - Custom window treatments
 - Upholstery throughout
 - Natural, breathable, biodegradable
@@ -131,6 +139,7 @@ The approach to Villa Nova is a carefully choreographed journey:
 ### Living Spaces
 
 **Great Room (85 sq m)**
+
 - Double-height volume with exposed timber trusses
 - 4-meter sliding glass wall to terrace
 - Central fireplace with pietra serena surround
@@ -138,6 +147,7 @@ The approach to Villa Nova is a carefully choreographed journey:
 - Terracotta floor extending to outdoor loggia
 
 **Kitchen (35 sq m)**
+
 - Custom oak cabinetry with brass mesh inserts
 - Central island with leathered granite surface
 - Walk-in pantry with cold storage
@@ -145,6 +155,7 @@ The approach to Villa Nova is a carefully choreographed journey:
 - Back kitchen for catering and storage
 
 **Dining Area (30 sq m)**
+
 - Table seating for 12
 - Bronze-framed glass doors to shaded terrace
 - Hand-blown glass pendant lighting
@@ -153,6 +164,7 @@ The approach to Villa Nova is a carefully choreographed journey:
 ### Private Quarters
 
 **Master Suite (65 sq m total)**
+
 - Bedroom (30 sq m) with panoramic glazing
 - Walk-through dressing room (15 sq m)
 - Ensuite bathroom (20 sq m) with:
@@ -162,12 +174,14 @@ The approach to Villa Nova is a carefully choreographed journey:
   - Private courtyard with outdoor shower
 
 **Guest Bedrooms (3 x 25 sq m)**
+
 - Queen-sized beds with custom headboards
 - Ensuite bathrooms
 - Private terraces
 - Individual climate control
 
 **Studio/Office (20 sq m)**
+
 - Located on mezzanine
 - Northern light for consistent illumination
 - Built-in desk and storage
@@ -176,18 +190,21 @@ The approach to Villa Nova is a carefully choreographed journey:
 ### Outdoor Living
 
 **The Loggia (50 sq m)**
+
 - Covered outdoor dining and lounge
 - Outdoor kitchen with pizza oven
 - Adjustable louvered roof for sun control
 - Heated floor for shoulder seasons
 
 **The Pool Area**
+
 - Infinity-edge lap pool (15m x 4m)
 - Sunken lounging terrace
 - Outdoor shower with hot water
 - Pool house with changing room and sauna
 
 **Mediterranean Gardens**
+
 - Olive grove (25 trees)
 - Kitchen garden with raised beds
 - Lavender borders and rosemary hedges
@@ -197,28 +214,31 @@ The approach to Villa Nova is a carefully choreographed journey:
 
 ### Passive Strategies
 
-| Strategy | Implementation | Energy Savings |
-|----------|----------------|----------------|
-| Thermal Mass | Stone walls + concrete floors | 25% reduction |
+| Strategy            | Implementation                   | Energy Savings        |
+| ------------------- | -------------------------------- | --------------------- |
+| Thermal Mass        | Stone walls + concrete floors    | 25% reduction         |
 | Natural Ventilation | Cross-ventilation + stack effect | 40% cooling reduction |
-| Solar Shading | Deep overhangs + deciduous trees | 50% cooling reduction |
-| Insulation | Continuous exterior insulation | 60% heating reduction |
+| Solar Shading       | Deep overhangs + deciduous trees | 50% cooling reduction |
+| Insulation          | Continuous exterior insulation   | 60% heating reduction |
 
 ### Active Systems
 
 **Heating & Cooling**
+
 - Ground-source heat pump (4 boreholes at 120m depth)
 - Radiant floor heating throughout
 - Fan coil units for summer cooling
 - Heat recovery ventilator (90% efficiency)
 
 **Renewable Energy**
+
 - 15 kW photovoltaic array (50 panels)
 - Solar thermal for domestic hot water
 - Annual production: 22,000 kWh
 - Net-zero energy (annual basis)
 
 **Water Management**
+
 - Rainwater harvesting (20,000L cistern)
 - Greywater recycling for garden irrigation
 - Drip irrigation system (80% water reduction)
@@ -236,18 +256,21 @@ The approach to Villa Nova is a carefully choreographed journey:
 ### Artisanal Elements
 
 **Stone Masonry**
+
 - Three local stonemasons worked for 8 months
 - Dry-stacked retaining walls (no mortar visible)
 - Hand-chiseled finish on every exposed stone
 - Traditional lime mortar for structural walls
 
 **Timber Framing**
+
 - Reclaimed oak trusses from 19th-century barn
 - Traditional mortise and tenon joinery
 - Hand-pegged connections (no metal fasteners)
 - Natural linseed oil finish
 
 **Metal Work**
+
 - Custom bronze hardware by local blacksmith
 - Hand-forged iron railings and gates
 - Copper gutters with hidden fasteners
@@ -281,11 +304,11 @@ The approach to Villa Nova is a carefully choreographed journey:
 
 ## Press Quotes
 
-> *"Villa Nova demonstrates that modernism can be warm, contextual, and deeply connected to place."* — Architectural Digest
+> _"Villa Nova demonstrates that modernism can be warm, contextual, and deeply connected to place."_ — Architectural Digest
 
-> *"A masterclass in material honesty and environmental responsiveness."* — Domus
+> _"A masterclass in material honesty and environmental responsiveness."_ — Domus
 
-> *"This is how you build in Tuscany — with respect for tradition and courage to innovate."* — Dezeen
+> _"This is how you build in Tuscany — with respect for tradition and courage to innovate."_ — Dezeen
 
 ## Project Team
 
@@ -303,4 +326,4 @@ Villa Nova represents a contemporary interpretation of Tuscan vernacular archite
 
 This villa is offered as a case study for clients seeking residences that honor their context while embracing 21st-century comfort and sustainability standards.
 
-*For inquiries about commissioning a similar residence, please contact our studio to discuss your vision.*
+_For inquiries about commissioning a similar residence, please contact our studio to discuss your vision._

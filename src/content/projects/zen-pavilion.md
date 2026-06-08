@@ -57,35 +57,38 @@ A detached timber structure floats above a reflecting pond, accessible via a woo
 ### Structural Innovation
 
 The pavilion employs a hybrid structural system:
+
 - **Reinforced Concrete Shells**: Thin-shell construction reduces material usage while creating dramatic spans
 - **Seismic Isolation**: Base isolators protect the structure while allowing subtle movement during earthquakes
 - **Thermal Mass**: Concrete walls regulate interior temperature, reducing energy needs by 60%
 
 ### Sustainable Strategies
 
-| Strategy | Implementation | Impact |
-|----------|---------------|---------|
-| Passive Cooling | Cross-ventilation + earth tubes | Zero AC required |
-| Water Management | Rainwater harvesting + greywater recycling | 80% reduction in water consumption |
-| Local Materials | Regional aggregates + traditional craftsmanship | 40% lower carbon footprint |
-| Renewable Energy | Integrated PV cells + geothermal | Net-zero energy operation |
+| Strategy         | Implementation                                  | Impact                             |
+| ---------------- | ----------------------------------------------- | ---------------------------------- |
+| Passive Cooling  | Cross-ventilation + earth tubes                 | Zero AC required                   |
+| Water Management | Rainwater harvesting + greywater recycling      | 80% reduction in water consumption |
+| Local Materials  | Regional aggregates + traditional craftsmanship | 40% lower carbon footprint         |
+| Renewable Energy | Integrated PV cells + geothermal                | Net-zero energy operation          |
 
 ### Material Palette
 
 **Primary Materials:**
+
 - **Board-Formed Concrete**: Locally sourced aggregates, formed with Japanese cedar planks for natural texture
 - **Tempered Glass**: Low-iron glass for maximum transparency
 - **Weathered Steel**: Accent elements that develop protective patina over time
 - **White Oak**: Interior flooring and custom furnishings
 
 **Secondary Elements:**
+
 - **Water**: Treated and recirculated through bronze channels
 - **Stone**: Native Kyoto river stones for garden pathways
 - **Paper**: Traditional washi paper for diffused lighting fixtures
 
 ## Light and Shadow
 
-> *"Architecture is the thoughtful making of spaces. It is the creating of spaces that evoke a feeling of appropriate use."* — Louis Kahn
+> _"Architecture is the thoughtful making of spaces. It is the creating of spaces that evoke a feeling of appropriate use."_ — Louis Kahn
 
 The pavilion treats light as a building material. Computer simulations optimized each opening's placement, size, and orientation to achieve specific lighting conditions:
 
@@ -138,12 +141,12 @@ Sound design is integral to the contemplative experience:
 
 The Zen Pavilion draws deeply from Japanese architectural traditions while pushing toward the future:
 
-| Traditional Element | Contemporary Interpretation |
-|---------------------|-----------------------------|
-| Engawa (veranda) | Continuous concrete ledge wrapping the perimeter |
-| Shōji screens | Motorized glass panels that dematerialize at the touch of a button |
-| Tokonoma alcove | Digital art installation displaying rotating exhibitions |
-| Karesansui garden | Kinetic sand garden with programmable raking patterns |
+| Traditional Element | Contemporary Interpretation                                        |
+| ------------------- | ------------------------------------------------------------------ |
+| Engawa (veranda)    | Continuous concrete ledge wrapping the perimeter                   |
+| Shōji screens       | Motorized glass panels that dematerialize at the touch of a button |
+| Tokonoma alcove     | Digital art installation displaying rotating exhibitions           |
+| Karesansui garden   | Kinetic sand garden with programmable raking patterns              |
 
 ## Environmental Impact
 
@@ -156,7 +159,7 @@ The pavilion achieves ambitious sustainability targets:
 
 ## Gallery
 
-*[Images would be displayed here showing:]*
+_[Images would be displayed here showing:]_
 
 1. Aerial perspective showing the pavilion nestled in forest
 2. Courtyard view with reflective pool and concrete masses
@@ -186,14 +189,14 @@ The pavilion achieves ambitious sustainability targets:
 
 ## Press Quotes
 
-> *"A masterclass in material honesty and spatial restraint."* — Architecture Today
+> _"A masterclass in material honesty and spatial restraint."_ — Architecture Today
 
-> *"The Zen Pavilion redefines what a contemplative space can be in the 21st century."* — Dezeen
+> _"The Zen Pavilion redefines what a contemplative space can be in the 21st century."_ — Dezeen
 
-> *"Brutalism meets tranquility in this stunning Kyoto concept."* — Wallpaper\* Magazine
+> _"Brutalism meets tranquility in this stunning Kyoto concept."_ — Wallpaper\* Magazine
 
 ## Conclusion
 
 The Zen Pavilion represents more than an architectural proposal — it is a manifesto for mindful design in an age of excess. By stripping away the non-essential, the design reveals architecture's fundamental power to shape human experience. While currently unbuilt, the pavilion continues to influence contemporary discourse on minimalism, sustainability, and the spiritual potential of modern materials.
 
-*Project available for private commission. For inquiries, please contact STUDIO Architecture.*
+_Project available for private commission. For inquiries, please contact STUDIO Architecture._

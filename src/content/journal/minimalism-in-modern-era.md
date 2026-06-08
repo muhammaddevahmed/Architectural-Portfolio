@@ -7,7 +7,6 @@ authorAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto
 authorBio: "Founder & Principal Architect at STUDIO. Sarah has spent two decades exploring the intersection of minimalism, sustainability, and human well-being."
 tags: ["Philosophy", "Minimalism", "Design Theory", "Sustainability"]
 readTime: 6
-
 ---
 
 # Minimalism in the Modern Era
@@ -46,13 +45,13 @@ When these concepts converge, minimalism becomes not about deprivation but about
 
 Minimalism's roots run deep:
 
-| Era | Movement | Key Figures | Contribution |
-|-----|----------|-------------|--------------|
-| 1920s-30s | Bauhaus | Mies van der Rohe | "Less is more" |
-| 1950s-60s | Japanese Modernism | Tadao Ando | Critical regionalism |
-| 1960s-70s | Minimal Art | Donald Judd | Object and space |
-| 1990s-2000s | Minimalist Revival | John Pawson | Spiritual minimalism |
-| Present | Sustainable Minimalism | Various | Eco-conscious reduction |
+| Era         | Movement               | Key Figures       | Contribution            |
+| ----------- | ---------------------- | ----------------- | ----------------------- |
+| 1920s-30s   | Bauhaus                | Mies van der Rohe | "Less is more"          |
+| 1950s-60s   | Japanese Modernism     | Tadao Ando        | Critical regionalism    |
+| 1960s-70s   | Minimal Art            | Donald Judd       | Object and space        |
+| 1990s-2000s | Minimalist Revival     | John Pawson       | Spiritual minimalism    |
+| Present     | Sustainable Minimalism | Various           | Eco-conscious reduction |
 
 ### The Shift from Form to Experience
 
@@ -157,19 +156,19 @@ Minimalist design favors accessible systems and honest materials that can be rep
 
 ### "Minimalism is cold and unwelcoming."
 
-*Response*: Only when poorly executed. Warm minimalism incorporates texture, natural materials, and human-scaled proportions. The problem isn't minimalism but minimalists who forgot that people need comfort.
+_Response_: Only when poorly executed. Warm minimalism incorporates texture, natural materials, and human-scaled proportions. The problem isn't minimalism but minimalists who forgot that people need comfort.
 
 ### "Minimalism is only for wealthy people with few possessions."
 
-*Response*: Minimalism as an aesthetic may require investment, but minimalism as a philosophy costs nothing. The choice to own less, to value quality over quantity, to prioritize space over stuff — these decisions are available to everyone.
+_Response_: Minimalism as an aesthetic may require investment, but minimalism as a philosophy costs nothing. The choice to own less, to value quality over quantity, to prioritize space over stuff — these decisions are available to everyone.
 
 ### "Minimalism ignores cultural diversity and local context."
 
-*Response*: Contemporary minimalism embraces critical regionalism — the idea that universal principles adapt to local conditions. Our work in Tuscany looks nothing like our work in Singapore, because place matters profoundly.
+_Response_: Contemporary minimalism embraces critical regionalism — the idea that universal principles adapt to local conditions. Our work in Tuscany looks nothing like our work in Singapore, because place matters profoundly.
 
 ### "Minimalism is just another trend."
 
-*Response*: Minimalism has persisted across cultures and centuries because it addresses fundamental human needs: clarity, focus, peace. Trends fade; human requirements for respite endure.
+_Response_: Minimalism has persisted across cultures and centuries because it addresses fundamental human needs: clarity, focus, peace. Trends fade; human requirements for respite endure.
 
 ---
 
@@ -227,23 +226,23 @@ We invite you to experiment with minimalism — not as dogma but as exploration.
 
 Then repeat.
 
-*Sarah Johnson is the founder and principal architect of STUDIO. Her work has been recognized internationally for its thoughtful integration of minimalism, sustainability, and human well-being.*
+_Sarah Johnson is the founder and principal architect of STUDIO. Her work has been recognized internationally for its thoughtful integration of minimalism, sustainability, and human well-being._
 
 ---
 
 ## Further Reading
 
-- *"The Architecture of Happiness"* by Alain de Botto
-- *"Minimalism: Live a Meaningful Life"* by Joshua Fields Millburn and Ryan Nicodemus
-- *"The Poetics of Space"* by Gaston Bachelard
-- *"In Praise of Shadows"* by Jun'ichirō Tanizaki
+- _"The Architecture of Happiness"_ by Alain de Botto
+- _"Minimalism: Live a Meaningful Life"_ by Joshua Fields Millburn and Ryan Nicodemus
+- _"The Poetics of Space"_ by Gaston Bachelard
+- _"In Praise of Shadows"_ by Jun'ichirō Tanizaki
 
 ---
 
 ## Discussion
 
-*What does minimalism mean to you? Share your thoughts in the comments below or tag us on social media with #STUDIOMinimalism*
+_What does minimalism mean to you? Share your thoughts in the comments below or tag us on social media with #STUDIOMinimalism_
 
---- 
+---
 
-*Cover image: Villa Nova living space, showcasing the interplay of light, stone, and negative space.*
+_Cover image: Villa Nova living space, showcasing the interplay of light, stone, and negative space._

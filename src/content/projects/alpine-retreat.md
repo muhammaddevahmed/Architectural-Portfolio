@@ -43,6 +43,7 @@ The compact form reduces heat loss, while deep overhangs provide passive solar s
 The charred timber cladding is both a design statement and a practical solution:
 
 **The Process**
+
 - Locally sourced larch timber is charred using the traditional Japanese Shou Sugi Ban method
 - The charring creates a 3mm carbonized layer that is naturally water-resistant and fire-retardant
 - Timber is then brushed, cleaned, and sealed with natural oils
@@ -50,13 +51,13 @@ The charred timber cladding is both a design statement and a practical solution:
 
 **Benefits**
 
-| Attribute | Performance |
-|-----------|-------------|
-| Durability | 80+ year lifespan without maintenance |
-| Fire Resistance | Class A fire rating (highest) |
-| Insect Resistance | Naturally repels wood-boring insects |
-| Weather Resistance | Impervious to rain, snow, and UV |
-| Carbon Sequestration | Locks carbon for building's lifetime |
+| Attribute            | Performance                           |
+| -------------------- | ------------------------------------- |
+| Durability           | 80+ year lifespan without maintenance |
+| Fire Resistance      | Class A fire rating (highest)         |
+| Insect Resistance    | Naturally repels wood-boring insects  |
+| Weather Resistance   | Impervious to rain, snow, and UV      |
+| Carbon Sequestration | Locks carbon for building's lifetime  |
 
 ## Off-Grid Systems
 
@@ -65,16 +66,19 @@ The Alpine Retreat achieves complete energy independence through an integrated a
 ### Power Generation
 
 **Solar Array**
+
 - 18 kW photovoltaic system on south-facing roof
 - Bifacial panels capture reflected light from snow
 - Annual generation: 22,000 kWh
 
 **Micro-Hydro**
+
 - 5 kW Pelton turbine fed by mountain stream
 - Provides 24/7 base load power
 - Generates 35,000 kWh annually
 
 **Battery Storage**
+
 - 40 kWh lithium-iron-phosphate battery bank
 - 3 days autonomy without generation
 - Smart load management prioritizes essential circuits
@@ -97,27 +101,28 @@ The Alpine Retreat achieves complete energy independence through an integrated a
 
 ### Exterior Finishes
 
-| Material | Application | Finish |
-|----------|-------------|--------|
-| Larch timber | Primary cladding | Shou Sugi Ban charred |
-| Copper | Roofing, gutters, downspouts | Natural patina |
-| Local stone | Foundation, retaining walls | Dry-stacked |
-| Triple-glazed timber | Windows and doors | Natural oil |
+| Material             | Application                  | Finish                |
+| -------------------- | ---------------------------- | --------------------- |
+| Larch timber         | Primary cladding             | Shou Sugi Ban charred |
+| Copper               | Roofing, gutters, downspouts | Natural patina        |
+| Local stone          | Foundation, retaining walls  | Dry-stacked           |
+| Triple-glazed timber | Windows and doors            | Natural oil           |
 
 ### Interior Finishes
 
-| Material | Application | Finish |
-|----------|-------------|--------|
-| Oak flooring | Living spaces | Brushed matte oil |
-| Terrazzo | Bathrooms, entry | Polished with aggregate |
-| Birch plywood | Wall paneling, built-ins | Clear lacquer |
-| Hand-troweled plaster | Feature walls | Natural pigment |
+| Material              | Application              | Finish                  |
+| --------------------- | ------------------------ | ----------------------- |
+| Oak flooring          | Living spaces            | Brushed matte oil       |
+| Terrazzo              | Bathrooms, entry         | Polished with aggregate |
+| Birch plywood         | Wall paneling, built-ins | Clear lacquer           |
+| Hand-troweled plaster | Feature walls            | Natural pigment         |
 
 ## Interior Spaces
 
 ### Great Room (80 sq m)
 
 The heart of the retreat features:
+
 - **Double-height volume** with exposed timber trusses
 - **Floor-to-ceiling glazing** framing mountain views
 - **Central fireplace** with soapstone surround
@@ -127,6 +132,7 @@ The heart of the retreat features:
 ### Kitchen (25 sq m)
 
 Designed for family gatherings and culinary exploration:
+
 - **Custom oak cabinetry** with brass hardware
 - **6-burner induction cooktop** (powered by solar)
 - **Walk-in pantry** with cold storage zone
@@ -136,18 +142,21 @@ Designed for family gatherings and culinary exploration:
 ### Bedrooms
 
 **Master Suite (30 sq m)**
+
 - King-sized bed facing panoramic window
 - Walk-through closet with custom organizers
 - Ensuite bathroom with steam shower
 - Private balcony with morning sun
 
 **Guest Rooms (2 x 20 sq m)**
+
 - Queen-sized beds
 - Built-in storage
 - Shared bathroom with soaking tub
 - Blackout shades for summer sleeping
 
 **Bunk Room (18 sq m)**
+
 - Custom-built bunk beds (sleeps 6)
 - Play nook with window seat
 - Direct access to garden level
@@ -180,18 +189,21 @@ Designed for family gatherings and culinary exploration:
 The retreat transforms with the seasons:
 
 **Winter**
+
 - Snow accumulation on roof is managed by steep pitch and heated gutters
 - Entry vestibule with heated floor melts snow from boots
 - Windows designed to shed snow automatically
 - Backup generator ensures continuity during extreme weather
 
 **Summer**
+
 - Deep overhangs provide passive cooling
 - Night-flush ventilation cools thermal mass
 - Insect screens allow windows to remain open
 - Outdoor living spaces extend the usable area
 
 **Autumn/Spring**
+
 - Rainwater collection for garden irrigation
 - Adjustable louvers modulate solar gain
 - Cross-ventilation captures prevailing breezes
@@ -211,6 +223,7 @@ Building at 1,800m elevation presented unique challenges:
 ### Craftsmanship
 
 Local artisans contributed traditional skills:
+
 - **Stone mason** from nearby village for foundation and retaining walls
 - **Carpenter** specializing in timber framing for roof structure
 - **Metalworker** for custom copper flashing and railings
@@ -228,17 +241,20 @@ Local artisans contributed traditional skills:
 The 2-hectare property was carefully restored:
 
 **Native Reforestation**
+
 - 500 indigenous trees planted (larch, pine, birch)
 - Meadow restoration with alpine wildflowers
 - Wildlife corridors maintained for marmots and chamois
 
 **Outdoor Spaces**
+
 - Stone terrace with fire pit
 - Vegetable garden (3 raised beds)
 - Berry patch (blueberries, currants, raspberries)
 - Wood storage shed with covered path to house
 
 **Access**
+
 - Permeable gravel drive (200m)
 - Snow melt system at carport
 - Walking trails through property
@@ -254,11 +270,11 @@ The 2-hectare property was carefully restored:
 
 ## Press Quotes
 
-> *"A masterwork of off-grid living that never sacrifices comfort or beauty."* — Wallpaper\*
+> _"A masterwork of off-grid living that never sacrifices comfort or beauty."_ — Wallpaper\*
 
-> *"The Alpine Retreat proves that sustainable design can be both rigorous and romantic."* — Dezeen
+> _"The Alpine Retreat proves that sustainable design can be both rigorous and romantic."_ — Dezeen
 
-> *"This is the future of mountain architecture — sensitive, self-sufficient, and stunning."* — Architectural Digest
+> _"This is the future of mountain architecture — sensitive, self-sufficient, and stunning."_ — Architectural Digest
 
 ## Project Team
 
@@ -273,4 +289,4 @@ The 2-hectare property was carefully restored:
 
 The Alpine Retreat demonstrates that remote living need not compromise on comfort or design. By integrating traditional craftsmanship with cutting-edge off-grid technology, the cabin achieves true sustainability while providing an inspiring sanctuary for its family. As climate concerns drive interest in low-impact living, this project offers a replicable model for responsible mountain development.
 
-*This project is available for architectural tours by appointment. Contact our studio for inquiries about similar retreat designs.*
+_This project is available for architectural tours by appointment. Contact our studio for inquiries about similar retreat designs._

@@ -7,7 +7,6 @@ authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto
 authorBio: "Creative Director at STUDIO, leading design vision and innovation across all projects."
 tags: ["Studio News", "Events", "Team", "Milestones"]
 readTime: 5
-
 ---
 
 # Studio Update: Spring 2024
@@ -29,30 +28,30 @@ We have welcomed three new senior architects to the STUDIO team, each bringing d
 **Elena Vasquez — Senior Architect, Sustainability Lead**
 Elena joins us from Foster + Partners, where she led environmental performance analysis on several Passivhaus-certified projects. With a master's degree in Sustainable Design from the Architectural Association and LEED Fellow accreditation, Elena will be spearheading our growing net-zero practice.
 
-*"I was drawn to STUDIO because of their commitment to making sustainability integral to design rather than an add-on certification. The holistic approach here is rare and refreshing."*
+_"I was drawn to STUDIO because of their commitment to making sustainability integral to design rather than an add-on certification. The holistic approach here is rare and refreshing."_
 
 **James Okonkwo — Senior Architect, Urban Design**
 Formerly with OMA in Rotterdam, James brings deep experience in large-scale urban interventions and mixed-use developments. His award-winning work on the Lagos Waterfront Masterplan demonstrated how architecture can catalyze community development.
 
-*"STUDIO's balance of conceptual rigor and built reality is exactly where I want my practice to live. I'm excited to help bridge our speculative work with transformative urban projects."*
+_"STUDIO's balance of conceptual rigor and built reality is exactly where I want my practice to live. I'm excited to help bridge our speculative work with transformative urban projects."_
 
 **Sophia Laurent — Senior Architect, Cultural + Institutional**
 Sophia arrives from Atelier Jean Nouvel, where she spent eight years developing museums and cultural centers across Europe and Asia. Her expertise in complex institutional projects will strengthen our expanding cultural portfolio.
 
-*"The opportunity to lead STUDIO's first major museum project in Paris was irresistible. This team understands that cultural architecture must serve communities first, aesthetics second."*
+_"The opportunity to lead STUDIO's first major museum project in Paris was irresistible. This team understands that cultural architecture must serve communities first, aesthetics second."_
 
 ### Supporting Talent
 
 Beyond our senior hires, we've also added six new team members across visualization, model-making, and administrative roles:
 
-| Role | Name | Background |
-|------|------|------------|
-| Lead Visualizer | Marcus Chen | Formerly at Bjarke Ingels Group |
-| Junior Designer | Priya Sharma | Graduate, Harvard GSD |
-| Model Maker | Thomas Wagner | 15 years experience, Zumthor studio |
-| Communications Manager | Lisa Park | Former editor, Architectural Record |
-| Studio Coordinator | Ahmed Hassan | MA Arts Management, Sotheby's |
-| Research Fellow | Dr. Olivia Benson | PhD, Sustainable Materials, Cambridge |
+| Role                   | Name              | Background                            |
+| ---------------------- | ----------------- | ------------------------------------- |
+| Lead Visualizer        | Marcus Chen       | Formerly at Bjarke Ingels Group       |
+| Junior Designer        | Priya Sharma      | Graduate, Harvard GSD                 |
+| Model Maker            | Thomas Wagner     | 15 years experience, Zumthor studio   |
+| Communications Manager | Lisa Park         | Former editor, Architectural Record   |
+| Studio Coordinator     | Ahmed Hassan      | MA Arts Management, Sotheby's         |
+| Research Fellow        | Dr. Olivia Benson | PhD, Sustainable Materials, Cambridge |
 
 ---
 
@@ -65,18 +64,21 @@ We are thrilled to announce our first major retrospective exhibition, **"Materia
 The exhibition will span 500 square meters across the Triennale's prestigious Galleria del Design, featuring:
 
 **Archival Materials**
+
 - Original concept sketches from 25 key projects
 - Study models (many never publicly displayed)
 - Construction photographs documenting the making of our built work
 - Material samples and finish explorations
 
 **New Commissions**
+
 - A site-specific installation exploring our signature material palette
 - An immersive film documenting our design process
 - Interactive digital archive allowing visitors to explore our portfolio
 - Full-scale facade mock-up demonstrating the Horizon Tower kinetic system
 
 **Public Programming**
+
 - Daily lunchtime talks by STUDIO principals
 - Weekend workshops for emerging architects
 - Evening panel discussions with collaborators and clients
@@ -90,7 +92,7 @@ The exhibition will span 500 square meters across the Triennale's prestigious Ga
 **Hours**: Tuesday–Sunday, 10:30 AM – 8:30 PM
 **Admission**: €12 general / €8 students
 
-*We will be sending formal invitations for the opening reception in August. If you would like to be added to the invitation list, please reply to this newsletter or contact our studio directly.*
+_We will be sending formal invitations for the opening reception in August. If you would like to be added to the invitation list, please reply to this newsletter or contact our studio directly._
 
 ---
 
@@ -126,16 +128,16 @@ We are honored to be among five firms shortlisted for the Sydney Harbour Cultura
 
 The past six months have brought welcome recognition for the studio:
 
-| Award | Project | Date |
-|-------|---------|------|
-| AIA National Honor Award | Alpine Retreat | January 2024 |
-| World Architecture Festival Award (Shortlist) | Horizon Tower | February 2024 |
-| ArchDaily Building of the Year (Nominee) | Villa Nova | March 2024 |
-| Dezeen Awards — Rural House of the Year | Alpine Retreat | April 2024 |
-| LEED Platinum Certification | Villa Nova | April 2024 |
-| Passivhaus Classic Certification | Alpine Retreat | May 2024 |
+| Award                                         | Project        | Date          |
+| --------------------------------------------- | -------------- | ------------- |
+| AIA National Honor Award                      | Alpine Retreat | January 2024  |
+| World Architecture Festival Award (Shortlist) | Horizon Tower  | February 2024 |
+| ArchDaily Building of the Year (Nominee)      | Villa Nova     | March 2024    |
+| Dezeen Awards — Rural House of the Year       | Alpine Retreat | April 2024    |
+| LEED Platinum Certification                   | Villa Nova     | April 2024    |
+| Passivhaus Classic Certification              | Alpine Retreat | May 2024      |
 
-Additionally, Sarah Johnson was named to *Architectural Digest's* "AD100" list for the first time, recognizing her as one of the world's leading design talents. Michael Chen was elected to the AIA College of Fellows, one of the youngest architects to receive the honor.
+Additionally, Sarah Johnson was named to _Architectural Digest's_ "AD100" list for the first time, recognizing her as one of the world's leading design talents. Michael Chen was elected to the AIA College of Fellows, one of the youngest architects to receive the honor.
 
 ---
 
@@ -157,15 +159,18 @@ Recent media coverage has brought STUDIO's work to wider audiences:
 ### Conferences & Lectures
 
 **Sarah Johnson**
-- Keynote: *"Minimalism in the Age of Excess"* — World Architecture Festival, Singapore (June 12)
-- Panel: *"The Future of Sustainable Housing"* — AIA National Conference, Washington DC (July 8)
+
+- Keynote: _"Minimalism in the Age of Excess"_ — World Architecture Festival, Singapore (June 12)
+- Panel: _"The Future of Sustainable Housing"_ — AIA National Conference, Washington DC (July 8)
 
 **Michael Chen**
-- Lecture: *"Kinetic Facades and Responsive Architecture"* — MIT Department of Architecture (September 5)
-- Workshop: *"Designing for Climate Resilience"* — Harvard GSD (October 10)
+
+- Lecture: _"Kinetic Facades and Responsive Architecture"_ — MIT Department of Architecture (September 5)
+- Workshop: _"Designing for Climate Resilience"_ — Harvard GSD (October 10)
 
 **Elena Vasquez**
-- Presentation: *"Net-Zero Retrofits: Case Studies from Europe"* — Passive House Institute Conference, Berlin (November 3-5)
+
+- Presentation: _"Net-Zero Retrofits: Case Studies from Europe"_ — Passive House Institute Conference, Berlin (November 3-5)
 
 ### Public Events
 
@@ -192,9 +197,9 @@ Sarah Johnson contributes a chapter on the Alpine Retreat to this survey of cont
 
 ### Recent Features
 
-- *"The Material Palette of STUDIO"* — Architectural Record, February 2024
-- *"Kinetic Architecture"* — Detail Magazine, March 2024
-- *"Studio Culture: Inside STUDIO's San Francisco Workspace"* — Frame Magazine, April 2024
+- _"The Material Palette of STUDIO"_ — Architectural Record, February 2024
+- _"Kinetic Architecture"_ — Detail Magazine, March 2024
+- _"Studio Culture: Inside STUDIO's San Francisco Workspace"_ — Frame Magazine, April 2024
 
 ---
 
@@ -228,7 +233,7 @@ We're currently seeking talented individuals to join our growing team:
 - **Visualization Specialist** (2-4 years) — Remote/Hybrid
 - **Studio Assistant** (Entry level) — San Francisco
 
-*For full descriptions and application instructions, please visit our [Careers page](/careers).*
+_For full descriptions and application instructions, please visit our [Careers page](/careers)._
 
 ### Summer Internship Program
 
@@ -248,7 +253,7 @@ As we move into the second half of 2024, we're energized by the momentum buildin
 
 We're deeply grateful to our clients, collaborators, and community for your continued trust and partnership. Architecture, at its best, is a collective endeavor — and we're proud to share this journey with all of you.
 
-*Stay tuned for our Summer Update in August, where we'll share installation shots from the Milan exhibition and breaking news on upcoming projects.*
+_Stay tuned for our Summer Update in August, where we'll share installation shots from the Milan exhibition and breaking news on upcoming projects._
 
 ---
 
@@ -257,4 +262,4 @@ San Francisco | London | Singapore
 
 [Website](/) | [Instagram](https://instagram.com) | [LinkedIn](https://linkedin.com) | [Twitter](https://twitter.com)
 
-*If you would prefer not to receive these updates, you may [unsubscribe here](#).*
+_If you would prefer not to receive these updates, you may [unsubscribe here](#)._

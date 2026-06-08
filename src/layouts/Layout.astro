@@ -1,4 +1,4 @@
-﻿---
+﻿﻿---
 // Layout.astro - Main Layout Component
 // Professional layout with ambient background and smooth animations
 import Header from '../components/Header.astro';
@@ -296,7 +296,7 @@ const { title, description = "High-end architecture studio portfolio", noPadding
         document.body.appendChild(cursorGlow);
         
         // Show cursor glow when mouse moves
-        let timeoutId;
+        let timeoutId: ReturnType<typeof setTimeout> | undefined;
         
         window.addEventListener('mousemove', (e) => {
           mouseX = e.clientX;

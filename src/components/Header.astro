@@ -1,4 +1,4 @@
-﻿---
+﻿﻿---
 // Header.astro - Professional Glassmorphism Header with Icons
 // Fixed: No blur icons, no duplicate swipe navbar
 ---
@@ -612,8 +612,8 @@
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     
-    function setActiveLink(links, path) {
-      links.forEach(link => {
+    function setActiveLink(links: NodeListOf<Element>, path: string) {
+      links.forEach((link) => {
         const href = link.getAttribute('href');
         if (href === path || (href !== '/' && path.startsWith(href) && href !== '/')) {
           link.classList.add('active');
@@ -627,7 +627,7 @@
     setActiveLink(mobileNavLinks, currentPath);
     
     // Handle window resize - close mobile menu on resize to desktop
-    let resizeTimer;
+    let resizeTimer: ReturnType<typeof setTimeout> | undefined;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
