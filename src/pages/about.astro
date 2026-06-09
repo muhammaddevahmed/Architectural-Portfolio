@@ -1,6 +1,7 @@
 ﻿﻿---
 // About.astro - About Page
-// Modern about page with team, values, and studio story
+// Modern about page with values, and studio story
+// Converted to Tailwind CSS only
 import Layout from '../layouts/Layout.astro';
 
 // Values data
@@ -39,25 +40,25 @@ const milestones = [
 
 <Layout title="About | STUDIO" description="Learn about our studio's philosophy, values, and the passionate team behind our award-winning architectural designs.">
   
-  <section class="about-page">
-    <div class="container">
+  <section class="py-24 max-md:py-16 relative">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
       
       <!-- Hero Section -->
-      <div class="hero-section reveal">
-        <div class="hero-badge">Our Story</div>
-        <h1 class="hero-title">About the Studio</h1>
-        <p class="hero-description">
+      <div class="text-center mb-20 reveal">
+        <div class="inline-block px-4 py-1 bg-[rgba(160,120,255,0.1)] border border-[rgba(160,120,255,0.2)] rounded-full text-[0.75rem] font-medium text-[#A078FF] mb-4">Our Story</div>
+        <h1 class="text-[2.5rem] max-md:text-[2.5rem] text-[3.5rem] font-bold tracking-[-0.03em] bg-gradient-to-br from-white to-[#A078FF] bg-clip-text text-transparent mb-4">About the Studio</h1>
+        <p class="text-[1.125rem] text-white/60 max-w-[600px] mx-auto leading-relaxed">
           Founded in 2012, STUDIO is an architectural practice that seeks to find the balance 
           between built environments and the natural world.
         </p>
       </div>
 
       <!-- Philosophy Section -->
-      <div class="philosophy-section reveal-delay-1">
-        <div class="philosophy-grid">
-          <div class="philosophy-content">
-            <h2 class="philosophy-title">Designing Spaces That Inspire</h2>
-            <div class="philosophy-text">
+      <div class="mb-24 reveal-delay-1">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-lg:gap-8 items-start">
+          <div>
+            <h2 class="text-2xl max-md:text-1.75rem text-[2rem] font-bold mb-6">Designing Spaces That Inspire</h2>
+            <div class="text-white/70 leading-relaxed mb-8 space-y-4">
               <p>
                 Our philosophy is rooted in the belief that spaces profoundly influence human behavior 
                 and well-being. We embrace a reductive approach, stripping away the superfluous to 
@@ -72,88 +73,86 @@ const milestones = [
                 resonates with its inhabitants and contributes positively to its surroundings.
               </p>
             </div>
-            <div class="philosophy-stats">
-              <div class="stat">
-                <div class="stat-number">12+</div>
-                <div class="stat-label">Years of Excellence</div>
+            <div class="flex gap-8 mt-8">
+              <div class="text-center">
+                <div class="text-3xl font-bold bg-gradient-to-br from-white to-[#A078FF] bg-clip-text text-transparent">12+</div>
+                <div class="text-[0.75rem] text-white/50 uppercase tracking-[0.05em]">Years of Excellence</div>
               </div>
-              <div class="stat">
-                <div class="stat-number">150+</div>
-                <div class="stat-label">Projects Completed</div>
+              <div class="text-center">
+                <div class="text-3xl font-bold bg-gradient-to-br from-white to-[#A078FF] bg-clip-text text-transparent">150+</div>
+                <div class="text-[0.75rem] text-white/50 uppercase tracking-[0.05em]">Projects Completed</div>
               </div>
-              <div class="stat">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Industry Awards</div>
+              <div class="text-center">
+                <div class="text-3xl font-bold bg-gradient-to-br from-white to-[#A078FF] bg-clip-text text-transparent">25+</div>
+                <div class="text-[0.75rem] text-white/50 uppercase tracking-[0.05em]">Industry Awards</div>
               </div>
             </div>
           </div>
-          <div class="philosophy-image">
+          <div class="relative">
             <img 
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" 
               alt="Studio interior workspace"
+              class="w-full h-auto rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
               loading="eager"
             />
-            <div class="image-caption">Our San Francisco studio space</div>
+            <div class="text-[0.75rem] text-white/40 text-center mt-3">Our San Francisco studio space</div>
           </div>
         </div>
       </div>
 
       <!-- Values Section -->
-      <div class="values-section reveal-delay-2">
-        <div class="section-header centered">
-          <div class="section-label">Core Values</div>
-          <h2 class="section-title">What Drives Us</h2>
-          <p class="section-subtitle">
+      <div class="mb-24 reveal-delay-2">
+        <div class="text-center mb-12">
+          <div class="text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-[#A078FF] mb-4">Core Values</div>
+          <h2 class="text-2xl max-md:text-2xl text-[2.5rem] font-bold tracking-[-0.02em] mb-4">What Drives Us</h2>
+          <p class="text-[1.125rem] text-white/60 max-w-[600px] mx-auto">
             Our guiding principles shape every project we undertake and every relationship we build.
           </p>
         </div>
-        <div class="values-grid">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
           {values.map((value, index) => (
-            <div class="value-card" style={`--value-index: ${index}`}>
-              <div class="value-icon">{value.icon}</div>
-              <h3 class="value-title">{value.title}</h3>
-              <p class="value-description">{value.description}</p>
+            <div class="p-8 bg-white/3 border border-white/6 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(160,120,255,0.3)] hover:bg-white/5" style={`--value-index: ${index}`}>
+              <div class="text-4xl mb-4">{value.icon}</div>
+              <h3 class="text-xl font-semibold mb-3">{value.title}</h3>
+              <p class="text-sm text-white/60 leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>
       </div>
 
       <!-- Timeline Section -->
-      <div class="timeline-section reveal-delay-3">
-        <div class="section-header centered">
-          <div class="section-label">Our Journey</div>
-          <h2 class="section-title">Milestones</h2>
+      <div class="mb-24 reveal-delay-3">
+        <div class="text-center mb-12">
+          <div class="text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-[#A078FF] mb-4">Our Journey</div>
+          <h2 class="text-2xl max-md:text-2xl text-[2.5rem] font-bold tracking-[-0.02em]">Milestones</h2>
         </div>
-        <div class="timeline">
+        <div class="timeline-container relative max-w-[800px] mx-auto py-8">
+          <div class="timeline-line"></div>
           {milestones.map((milestone, index) => (
-            <div class="timeline-item" style={`--milestone-index: ${index}`}>
-              <div class="timeline-year">{milestone.year}</div>
-              <div class="timeline-content">
-                <h3 class="timeline-title">{milestone.title}</h3>
-                <p class="timeline-description">{milestone.description}</p>
+            <div class="timeline-item-wrapper relative flex max-md:flex-col gap-8 mb-12 max-md:ml-10" style={`--milestone-index: ${index}`}>
+              <div class="timeline-year shrink-0 w-[100px] max-md:w-auto text-xl font-bold text-[#A078FF]">{milestone.year}</div>
+              <div class="timeline-content flex-1 p-4 px-6 bg-white/3 border border-white/6 rounded-2xl transition-all duration-300 hover:border-[rgba(160,120,255,0.3)] hover:bg-white/5">
+                <h3 class="text-lg font-semibold mb-2">{milestone.title}</h3>
+                <p class="text-sm text-white/60 leading-relaxed">{milestone.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-    
-
       <!-- CTA Section -->
-      <div class="cta-section reveal-delay-4">
-        <div class="cta-card glass-strong">
-          <div class="cta-content">
-            <h2 class="cta-title">Let's Create Together</h2>
-            <p class="cta-description">
-              Ready to bring your architectural vision to life? We'd love to hear about your project.
-            </p>
-            <a href="/contact" class="btn-primary btn-large">
-              Start a Conversation
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
+      <div class="mt-16 reveal-delay-4">
+        <div class="bg-gradient-to-br from-[rgba(160,120,255,0.1)] to-[rgba(120,255,210,0.05)] rounded-3xl p-16 max-md:p-8 text-center">
+          <h2 class="text-2xl max-md:text-1.5rem text-[2rem] font-bold mb-4">Let's Create Together</h2>
+          <p class="text-[1.125rem] text-white/70 mb-8">
+            Ready to bring your architectural vision to life? We'd love to hear about your project.
+          </p>
+          <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-[#A078FF] to-[#78FFD2] rounded-full text-[1rem] font-semibold text-[#0A0A0E] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(160,120,255,0.3)] hover:gap-3">
+            Start a Conversation
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
       
@@ -163,498 +162,9 @@ const milestones = [
 
 <style is:global>
   /* ============================================
-     ABOUT PAGE STYLES - Modern Studio About
+     ONLY ANIMATION KEYFRAMES - No other CSS
      ============================================ */
   
-  .about-page {
-    padding: 6rem 0 8rem;
-    position: relative;
-  }
-  
-  @media (max-width: 768px) {
-    .about-page {
-      padding: 4rem 0 6rem;
-    }
-  }
-  
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 1.25rem;
-    }
-  }
-  
-  /* ===== Hero Section ===== */
-  .hero-section {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-  
-  .hero-badge {
-    display: inline-block;
-    padding: 0.25rem 1rem;
-    background: rgba(160, 120, 255, 0.1);
-    border: 1px solid rgba(160, 120, 255, 0.2);
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #A078FF;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #FFFFFF, #A078FF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2.5rem;
-    }
-  }
-  
-  .hero-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-  
-  /* ===== Philosophy Section ===== */
-  .philosophy-section {
-    margin-bottom: 6rem;
-  }
-  
-  .philosophy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  
-  @media (max-width: 900px) {
-    .philosophy-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  }
-  
-  .philosophy-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .philosophy-title {
-      font-size: 1.75rem;
-    }
-  }
-  
-  .philosophy-text {
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.8;
-    margin-bottom: 2rem;
-  }
-  
-  .philosophy-text p {
-    margin-bottom: 1rem;
-  }
-  
-  .philosophy-stats {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .stat {
-    text-align: center;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #FFFFFF, #A078FF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .stat-label {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .philosophy-image {
-    position: relative;
-  }
-  
-  .philosophy-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 1.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-  
-  .image-caption {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
-    text-align: center;
-    margin-top: 0.75rem;
-  }
-  
-  /* ===== Values Section ===== */
-  .values-section {
-    margin-bottom: 6rem;
-  }
-  
-  .section-header {
-    margin-bottom: 3rem;
-  }
-  
-  .section-header.centered {
-    text-align: center;
-  }
-  
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #A078FF;
-    margin-bottom: 1rem;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .section-title {
-      font-size: 2rem;
-    }
-  }
-  
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .value-card {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  
-  .value-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(160, 120, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  .value-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .value-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-  
-  .value-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.6;
-  }
-  
-  /* ===== Timeline Section ===== */
-  .timeline-section {
-    margin-bottom: 6rem;
-  }
-  
-  .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 0;
-  }
-  
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, #A078FF, #78FFD2);
-    opacity: 0.3;
-  }
-  
-  @media (max-width: 768px) {
-    .timeline::before {
-      left: 20px;
-    }
-  }
-  
-  .timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    display: flex;
-    gap: 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .timeline-item {
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-left: 2.5rem;
-    }
-  }
-  
-  .timeline-year {
-    flex-shrink: 0;
-    width: 100px;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #A078FF;
-  }
-  
-  @media (max-width: 768px) {
-    .timeline-year {
-      width: auto;
-    }
-  }
-  
-  .timeline-content {
-    flex: 1;
-    padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .timeline-content:hover {
-    border-color: rgba(160, 120, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  .timeline-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .timeline-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.5;
-  }
-  
-  /* ===== Team Section ===== */
-  .team-section {
-    margin-bottom: 6rem;
-  }
-  
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  
-  .team-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1.5rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .team-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(160, 120, 255, 0.3);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .team-image-wrapper {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1;
-  }
-  
-  .team-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .team-card:hover .team-image {
-    transform: scale(1.05);
-  }
-  
-  .team-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-  
-  .team-card:hover .team-overlay {
-    opacity: 1;
-  }
-  
-  .team-social {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    color: #0A0A0E;
-    transition: all 0.2s ease;
-  }
-  
-  .social-icon:hover {
-    transform: translateY(-2px);
-    background: #A078FF;
-    color: #FFFFFF;
-  }
-  
-  .team-info {
-    padding: 1.5rem;
-    text-align: center;
-  }
-  
-  .team-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
-  
-  .team-role {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #A078FF;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.75rem;
-  }
-  
-  .team-bio {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.5;
-  }
-  
-  /* ===== CTA Section ===== */
-  .cta-section {
-    margin-top: 4rem;
-  }
-  
-  .cta-card {
-    background: linear-gradient(135deg, rgba(160, 120, 255, 0.1), rgba(120, 255, 210, 0.05));
-    border-radius: 2rem;
-    padding: 4rem;
-    text-align: center;
-  }
-  
-  @media (max-width: 768px) {
-    .cta-card {
-      padding: 2rem;
-    }
-  }
-  
-  .cta-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .cta-title {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .cta-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2rem;
-  }
-  
-  .btn-primary, .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary {
-    background: linear-gradient(135deg, #A078FF, #78FFD2);
-    color: #0A0A0E;
-  }
-  
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(160, 120, 255, 0.3);
-    gap: 0.75rem;
-  }
-  
-  .btn-large {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  }
-  
-  /* ===== Animation Classes ===== */
   .reveal {
     opacity: 0;
     animation: fadeInUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
@@ -688,6 +198,46 @@ const milestones = [
     from {
       opacity: 0;
       transform: translateY(30px);
+    }
+  }
+  
+  /* Timeline line styling */
+  .timeline-container {
+    position: relative;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, #A078FF, #78FFD2);
+    opacity: 0.3;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-line {
+      left: 20px;
+    }
+  }
+  
+  .timeline-item-wrapper {
+    position: relative;
+  }
+  
+  @media (min-width: 769px) {
+    .timeline-item-wrapper:nth-child(odd) {
+      flex-direction: row;
+    }
+    
+    .timeline-item-wrapper:nth-child(even) {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+    
+    .timeline-item-wrapper:nth-child(even) .timeline-year {
+      text-align: right;
     }
   }
 </style>

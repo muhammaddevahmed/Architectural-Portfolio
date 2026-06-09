@@ -1,6 +1,7 @@
 ﻿﻿---
 // Index.astro - Homepage
 // Modern portfolio homepage with 2 featured projects
+// Converted to Tailwind CSS
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -43,29 +44,29 @@ const stats = [
 <Layout title="STUDIO | Architecture & Design" description="An award-winning architecture and design studio focused on minimalist, sustainable, and context-driven spaces.">
   
   <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge reveal">
-          <span class="badge-dot"></span>
+  <section class="min-h-[90vh] flex items-center relative py-24 pb-16">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+      <div class="max-w-[900px] mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-[rgba(160,120,255,0.1)] border border-[rgba(160,120,255,0.2)] rounded-full text-[0.75rem] font-medium text-[#A078FF] mb-8 reveal">
+          <span class="w-1.5 h-1.5 bg-[#78FFD2] rounded-full inline-block"></span>
           Award-winning architecture studio
         </div>
-        <h1 class="hero-title reveal-delay-1">
+        <h1 class="text-[2.75rem] max-md:text-[2.75rem] text-[4.5rem] font-bold leading-[1.1] tracking-[-0.03em] mb-6 reveal-delay-1">
           Shaping environments
-          <span class="gradient-text">that inspire.</span>
+          <span class="bg-gradient-to-br from-[#A078FF] to-[#78FFD2] bg-clip-text text-transparent">that inspire.</span>
         </h1>
-        <p class="hero-description reveal-delay-2">
+        <p class="text-[1.125rem] max-md:text-[1.125rem] text-[1.25rem] text-white/70 max-w-[600px] mx-auto mb-8 leading-relaxed reveal-delay-2">
           An award-winning architecture and design studio focused on minimalist, 
           sustainable, and context-driven spaces that stand the test of time.
         </p>
-        <div class="hero-buttons reveal-delay-3">
-          <a href="/projects" class="btn-primary">
+        <div class="flex gap-4 justify-center flex-wrap reveal-delay-3">
+          <a href="/projects" class="inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-br from-[#A078FF] to-[#78FFD2] rounded-full text-[0.875rem] font-semibold text-[#0A0A0E] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(160,120,255,0.3)] hover:gap-3">
             View Our Work
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="/contact" class="btn-secondary">
+          <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white/5 border border-white/10 rounded-full text-[0.875rem] font-semibold text-white no-underline transition-all duration-300 hover:bg-white/10 hover:-translate-y-0.5 hover:gap-3">
             Let's Talk
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M3 8L10.5 13.5C11.2 14 12.8 14 13.5 13.5L21 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -76,7 +77,7 @@ const stats = [
       </div>
       
       <!-- Scroll indicator -->
-      <div class="scroll-indicator reveal-delay-4">
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[0.75rem] text-white/40 reveal-delay-4">
         <span>Scroll to explore</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -86,13 +87,13 @@ const stats = [
   </section>
 
   <!-- Featured Projects Section - Exactly 2 Projects -->
-  <section class="featured-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label reveal">Featured Works</div>
-        <div class="section-header-row">
-          <h2 class="section-title reveal-delay-1">Selected Projects</h2>
-          <a href="/projects" class="view-all-link reveal-delay-2">
+  <section class="py-24">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+      <div class="mb-12">
+        <div class="text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-[#A078FF] mb-4 reveal">Featured Works</div>
+        <div class="flex justify-between items-end flex-wrap gap-4">
+          <h2 class="text-[2rem] max-md:text-[2rem] text-[2.5rem] font-bold tracking-[-0.02em] reveal-delay-1">Selected Projects</h2>
+          <a href="/projects" class="inline-flex items-center gap-2 text-[0.875rem] font-medium text-white/70 no-underline transition-all duration-300 hover:text-[#A078FF] hover:gap-3 reveal-delay-2">
             View All Projects
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -101,20 +102,20 @@ const stats = [
         </div>
       </div>
       
-      <div class="projects-grid projects-grid-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
         {featuredProjects.map((project: any, index: number) => (
-          <a href={`/projects/${project.id}`} class="project-card reveal-delay-3" style={`--card-index: ${index}`}>
-            <div class="project-image-wrapper">
+          <a href={`/projects/${project.id}`} class="block no-underline transition-all duration-300 hover:-translate-y-1 reveal-delay-3" style={`--card-index: ${index}`}>
+            <div class="relative overflow-hidden rounded-2xl mb-5 aspect-[4/3]">
               <img 
                 src={project.data.image} 
                 alt={project.data.title} 
-                class="project-image"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading={index === 0 ? "eager" : "lazy"}
               />
-              <div class="project-overlay">
-                <div class="project-overlay-content">
-                  <span class="project-category">{project.data.category}</span>
-                  <span class="project-link">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100 flex items-end p-6">
+                <div class="flex justify-between items-center w-full">
+                  <span class="text-[0.75rem] font-medium text-white/80">{project.data.category}</span>
+                  <span class="inline-flex items-center gap-2 text-[0.875rem] font-medium text-white">
                     View Project
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -123,12 +124,12 @@ const stats = [
                 </div>
               </div>
             </div>
-            <div class="project-info">
+            <div class="flex justify-between items-start gap-4">
               <div>
-                <h3 class="project-title">{project.data.title}</h3>
-                <p class="project-description">{project.data.description}</p>
+                <h3 class="text-xl font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-[#A078FF]">{project.data.title}</h3>
+                <p class="text-sm text-white/60 leading-relaxed">{project.data.description}</p>
               </div>
-              <span class="project-badge">{project.data.category}</span>
+              <span class="px-3 py-1 bg-white/5 border border-white/8 rounded-full text-[0.7rem] text-white/70 whitespace-nowrap">{project.data.category}</span>
             </div>
           </a>
         ))}
@@ -137,22 +138,22 @@ const stats = [
   </section>
 
   <!-- Services Section -->
-  <section class="services-section">
-    <div class="container">
-      <div class="section-header centered">
-        <div class="section-label reveal">What We Do</div>
-        <h2 class="section-title reveal-delay-1">Comprehensive Design Services</h2>
-        <p class="section-subtitle reveal-delay-2">
+  <section class="py-24 bg-gradient-to-b from-transparent via-[rgba(160,120,255,0.03)] to-transparent">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+      <div class="text-center mb-12">
+        <div class="text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-[#A078FF] mb-4 reveal">What We Do</div>
+        <h2 class="text-[2rem] max-md:text-[2rem] text-[2.5rem] font-bold tracking-[-0.02em] reveal-delay-1">Comprehensive Design Services</h2>
+        <p class="text-[1.125rem] text-white/60 max-w-[600px] mx-auto mt-4 reveal-delay-2">
           From concept to completion, we deliver exceptional design solutions tailored to your needs.
         </p>
       </div>
       
-      <div class="services-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
         {services.map((service, index) => (
-          <div class="service-card reveal-delay-3" style={`--service-index: ${index}`}>
-            <div class="service-icon">{service.icon}</div>
-            <h3 class="service-title">{service.title}</h3>
-            <p class="service-description">{service.description}</p>
+          <div class="p-8 bg-white/3 border border-white/6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(160,120,255,0.3)] hover:bg-white/5 reveal-delay-3" style={`--service-index: ${index}`}>
+            <div class="text-4xl mb-5">{service.icon}</div>
+            <h3 class="text-xl font-semibold mb-3">{service.title}</h3>
+            <p class="text-sm text-white/60 leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
@@ -160,13 +161,13 @@ const stats = [
   </section>
 
   <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
+  <section class="py-16">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         {stats.map((stat, index) => (
-          <div class="stat-card reveal-delay-1" style={`--stat-index: ${index}`}>
-            <div class="stat-value">{stat.value}</div>
-            <div class="stat-label">{stat.label}</div>
+          <div class="reveal-delay-1" style={`--stat-index: ${index}`}>
+            <div class="text-5xl font-bold bg-gradient-to-br from-white to-[#A078FF] bg-clip-text text-transparent mb-2">{stat.value}</div>
+            <div class="text-sm text-white/50 uppercase tracking-[0.05em]">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -174,21 +175,21 @@ const stats = [
   </section>
 
   <!-- Philosophy Section -->
-  <section class="philosophy-section">
-    <div class="container">
-      <div class="philosophy-content">
-        <div class="philosophy-text">
-          <div class="section-label reveal">Our Philosophy</div>
-          <h2 class="philosophy-title reveal-delay-1">
+  <section class="py-24">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-[#A078FF] mb-4 reveal">Our Philosophy</div>
+          <h2 class="text-[2rem] max-md:text-[2rem] text-[2.5rem] font-bold leading-[1.2] mb-6 reveal-delay-1">
             Designing for people,
-            <span class="gradient-text">building for the future.</span>
+            <span class="bg-gradient-to-br from-[#A078FF] to-[#78FFD2] bg-clip-text text-transparent">building for the future.</span>
           </h2>
-          <p class="philosophy-description reveal-delay-2">
+          <p class="text-[1.125rem] text-white/70 leading-relaxed mb-8 reveal-delay-2">
             We believe that great architecture is more than just aesthetics—it's about creating spaces 
             that enhance human experience, respect the environment, and inspire generations to come.
           </p>
-          <div class="philosophy-buttons reveal-delay-3">
-            <a href="/about" class="btn-secondary">
+          <div class="reveal-delay-3">
+            <a href="/about" class="inline-flex items-center gap-2 px-7 py-3.5 bg-white/5 border border-white/10 rounded-full text-[0.875rem] font-semibold text-white no-underline transition-all duration-300 hover:bg-white/10 hover:-translate-y-0.5 hover:gap-3">
               Learn More About Us
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -196,35 +197,31 @@ const stats = [
             </a>
           </div>
         </div>
-        <div class="philosophy-image reveal-delay-4">
-          <div class="image-placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
+        <div class="bg-gradient-to-br from-[rgba(160,120,255,0.1)] to-[rgba(120,255,210,0.05)] rounded-3xl aspect-square flex items-center justify-center border border-white/10 reveal-delay-4">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" class="text-white/20">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-card glass-strong">
-        <div class="cta-content">
-          <h2 class="cta-title">Ready to bring your vision to life?</h2>
-          <p class="cta-description">
-            Let's collaborate on your next project and create something extraordinary together.
-          </p>
-          <a href="/contact" class="btn-primary btn-large">
-            Start a Conversation
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
+  <section class="pt-16 pb-32">
+    <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+      <div class="bg-gradient-to-br from-[rgba(160,120,255,0.1)] to-[rgba(120,255,210,0.05)] rounded-3xl p-16 max-md:p-8 text-center">
+        <h2 class="text-2xl max-md:text-[1.5rem] text-[2rem] font-bold mb-4">Ready to bring your vision to life?</h2>
+        <p class="text-[1.125rem] text-white/70 mb-8">
+          Let's collaborate on your next project and create something extraordinary together.
+        </p>
+        <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-[#A078FF] to-[#78FFD2] rounded-full text-[1rem] font-semibold text-[#0A0A0E] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(160,120,255,0.3)] hover:gap-3">
+          Start a Conversation
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -233,513 +230,9 @@ const stats = [
 
 <style is:global>
   /* ============================================
-     HOMEPAGE STYLES - Modern Portfolio Design
+     ANIMATION STYLES - Preserved from original
      ============================================ */
   
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 1.25rem;
-    }
-  }
-  
-  /* ===== Hero Section ===== */
-  .hero-section {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 6rem 0 4rem;
-  }
-  
-  .hero-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(160, 120, 255, 0.1);
-    border: 1px solid rgba(160, 120, 255, 0.2);
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #A078FF;
-    margin-bottom: 2rem;
-  }
-  
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    background: #78FFD2;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  
-  .hero-title {
-    font-size: 4.5rem;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 1.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2.75rem;
-    }
-  }
-  
-  .gradient-text {
-    background: linear-gradient(135deg, #A078FF, #78FFD2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .hero-description {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-description {
-      font-size: 1.125rem;
-    }
-  }
-  
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .btn-primary, .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary {
-    background: linear-gradient(135deg, #A078FF, #78FFD2);
-    color: #0A0A0E;
-  }
-  
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(160, 120, 255, 0.3);
-    gap: 0.75rem;
-  }
-  
-  .btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
-  }
-  
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-    gap: 0.75rem;
-  }
-  
-  .btn-large {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  }
-  
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
-  }
-  
-  /* ===== Featured Projects ===== */
-  .featured-section {
-    padding: 6rem 0;
-  }
-  
-  .section-header {
-    margin-bottom: 3rem;
-  }
-  
-  .section-header.centered {
-    text-align: center;
-  }
-  
-  .section-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #A078FF;
-    margin-bottom: 1rem;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  
-  @media (max-width: 768px) {
-    .section-title {
-      font-size: 2rem;
-    }
-  }
-  
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 600px;
-    margin: 1rem auto 0;
-  }
-  
-  .view-all-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .view-all-link:hover {
-    color: #A078FF;
-    gap: 0.75rem;
-  }
-  
-  /* Grid for exactly 2 projects */
-  .projects-grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  @media (max-width: 900px) {
-    .projects-grid-2 {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  }
-  
-  .project-card {
-    text-decoration: none;
-    display: block;
-    transition: all 0.3s ease;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-4px);
-  }
-  
-  .project-image-wrapper {
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.5rem;
-    margin-bottom: 1.25rem;
-    aspect-ratio: 4 / 3;
-  }
-  
-  .project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .project-card:hover .project-image {
-    transform: scale(1.05);
-  }
-  
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: flex-end;
-    padding: 1.5rem;
-  }
-  
-  .project-card:hover .project-overlay {
-    opacity: 1;
-  }
-  
-  .project-overlay-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .project-category {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .project-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #FFFFFF;
-  }
-  
-  .project-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .project-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-  }
-  
-  .project-card:hover .project-title {
-    color: #A078FF;
-  }
-  
-  .project-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.5;
-  }
-  
-  .project-badge {
-    padding: 0.25rem 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.7);
-    white-space: nowrap;
-  }
-  
-  /* ===== Services Section ===== */
-  .services-section {
-    padding: 6rem 0;
-    background: linear-gradient(180deg, transparent, rgba(160, 120, 255, 0.03), transparent);
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  
-  .service-card {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1.5rem;
-    transition: all 0.3s ease;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(160, 120, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-  }
-  
-  .service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.25rem;
-  }
-  
-  .service-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-  
-  .service-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.6;
-  }
-  
-  /* ===== Stats Section ===== */
-  .stats-section {
-    padding: 4rem 0;
-  }
-  
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    text-align: center;
-  }
-  
-  @media (max-width: 768px) {
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .stats-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .stat-value {
-    font-size: 3rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #FFFFFF, #A078FF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 0.5rem;
-  }
-  
-  .stat-label {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  /* ===== Philosophy Section ===== */
-  .philosophy-section {
-    padding: 6rem 0;
-  }
-  
-  .philosophy-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  
-  @media (max-width: 900px) {
-    .philosophy-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  }
-  
-  .philosophy-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .philosophy-title {
-      font-size: 2rem;
-    }
-  }
-  
-  .philosophy-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-  
-  .philosophy-image {
-    background: linear-gradient(135deg, rgba(160, 120, 255, 0.1), rgba(120, 255, 210, 0.05));
-    border-radius: 2rem;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .image-placeholder svg {
-    width: 80px;
-    height: 80px;
-    color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* ===== CTA Section ===== */
-  .cta-section {
-    padding: 4rem 0 8rem;
-  }
-  
-  .cta-card {
-    background: linear-gradient(135deg, rgba(160, 120, 255, 0.1), rgba(120, 255, 210, 0.05));
-    border-radius: 2rem;
-    padding: 4rem;
-    text-align: center;
-  }
-  
-  @media (max-width: 768px) {
-    .cta-card {
-      padding: 2rem;
-    }
-  }
-  
-  .cta-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .cta-title {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .cta-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2rem;
-  }
-  
-  /* ===== Animation Classes ===== */
   .reveal {
     opacity: 0;
     animation: fadeInUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
@@ -774,5 +267,14 @@ const stats = [
       opacity: 0;
       transform: translateY(30px);
     }
+  }
+  
+  /* Group hover styles for project cards */
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+  }
+  
+  .group:hover .group-hover\:text-\[#A078FF\] {
+    color: #A078FF;
   }
 </style>

@@ -1,6 +1,7 @@
 ﻿---
 // [id].astro - Project Detail Page
 // Enhanced project showcase with rich content display
+// Converted to Tailwind CSS only
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
@@ -40,32 +41,32 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
   <article class="project-detail">
     
     {/* Hero Section */}
-    <div class="hero-section">
-      <div class="container">
-        <div class="hero-breadcrumb">
-          <a href="/projects">Projects</a>
+    <div class="pt-16 pb-8">
+      <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+        <div class="flex items-center gap-2 text-xs text-white/50 mb-6">
+          <a href="/projects" class="text-white/50 no-underline transition-colors duration-200 hover:text-[#A078FF]">Projects</a>
           <span>/</span>
           <span>{project.data.category}</span>
         </div>
         
-        <h1 class="hero-title">{project.data.title}</h1>
+        <h1 class="text-3rem max-md:text-2rem text-[3rem] font-bold tracking-[-0.02em] mb-6 max-w-[800px]">{project.data.title}</h1>
         
-        <div class="hero-meta">
-          <div class="meta-item">
+        <div class="flex flex-wrap gap-6">
+          <div class="flex items-center gap-2 text-sm text-white/60">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
               <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
             <span>{readTime} min read</span>
           </div>
-          <div class="meta-item">
+          <div class="flex items-center gap-2 text-sm text-white/60">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5"/>
               <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/>
             </svg>
             <span>{projectSpecs.location}</span>
           </div>
-          <div class="meta-item">
+          <div class="flex items-center gap-2 text-sm text-white/60">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
               <path d="M8 2V6M16 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -73,7 +74,7 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
             <span>{projectSpecs.year}</span>
           </div>
           {project.data.gallery && (
-            <div class="meta-item">
+            <div class="flex items-center gap-2 text-sm text-white/60">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M8 10C9.1046 10 10 9.10457 10 8C10 6.89543 9.1046 6 8 6C6.8954 6 6 6.89543 6 8C6 9.10457 6.8954 10 8 10Z" stroke="currentColor" stroke-width="1.5"/>
@@ -87,7 +88,7 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     </div>
 
     {/* Hero Image */}
-    <div class="hero-image-wrapper">
+    <div class="my-8 mb-16">
       <div class="hero-image-container">
         <img 
           src={project.data.image} 
@@ -103,50 +104,50 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
           </svg>
         </button>
       </div>
-      <div class="hero-image-caption">{project.data.title}, {projectSpecs.location}</div>
+      <div class="text-center text-[0.75rem] text-white/40 mt-3">{project.data.title}, {projectSpecs.location}</div>
     </div>
 
     {/* Content Layout */}
-    <div class="content-section">
-      <div class="container">
-        <div class="content-layout">
+    <div class="py-8 pb-16">
+      <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+        <div class="flex gap-16 max-lg:flex-col max-lg:gap-12">
           
           {/* Main Content */}
-          <div class="main-content">
+          <div class="flex-[2]">
             <div class="prose-container">
               <Content />
             </div>
           </div>
           
           {/* Project Info Sidebar */}
-          <aside class="project-sidebar">
-            <div class="sidebar-card">
-              <h3 class="sidebar-title">Project Details</h3>
+          <aside class="flex-1 sticky top-[100px] max-lg:static">
+            <div class="bg-white/3 border border-white/6 rounded-2xl p-6 mb-6">
+              <h3 class="text-base font-semibold mb-4 text-white">Project Details</h3>
               
-              <div class="specs-list">
-                <div class="spec-item">
-                  <span class="spec-label">Client</span>
-                  <span class="spec-value">{projectSpecs.client}</span>
+              <div class="flex flex-col gap-4">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-white/50">Client</span>
+                  <span class="text-white/80 font-medium">{projectSpecs.client}</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Year</span>
-                  <span class="spec-value">{projectSpecs.year}</span>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-white/50">Year</span>
+                  <span class="text-white/80 font-medium">{projectSpecs.year}</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Location</span>
-                  <span class="spec-value">{projectSpecs.location}</span>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-white/50">Location</span>
+                  <span class="text-white/80 font-medium">{projectSpecs.location}</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Area</span>
-                  <span class="spec-value">{projectSpecs.area}</span>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-white/50">Area</span>
+                  <span class="text-white/80 font-medium">{projectSpecs.area}</span>
                 </div>
-                <div class="spec-item">
-                  <span class="spec-label">Status</span>
-                  <span class="spec-value status-badge">{projectSpecs.status}</span>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-white/50">Status</span>
+                  <span class="px-2 py-0.5 bg-[rgba(120,255,210,0.1)] rounded-full text-[#78FFD2]">{projectSpecs.status}</span>
                 </div>
               </div>
               
-              <div class="sidebar-divider"></div>
+              <div class="h-px bg-white/8 my-4"></div>
               
               <div class="sidebar-actions">
                 <a href="/contact" class="sidebar-btn primary">
@@ -158,8 +159,6 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
                 </a>
               </div>
             </div>
-            
-           
           </aside>
         </div>
       </div>
@@ -167,16 +166,16 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
 
     {/* Related Projects */}
     {relatedProjects.length > 0 && (
-      <section class="related-section">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Related Projects</h2>
-            <p class="section-subtitle">Explore more work in {project.data.category}</p>
+      <section class="py-16 bg-gradient-to-b from-transparent via-[rgba(160,120,255,0.03)] to-transparent">
+        <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+          <div class="text-center mb-12">
+            <h2 class="text-2xl max-md:text-1.5rem text-[2rem] font-bold mb-2">Related Projects</h2>
+            <p class="text-sm text-white/50">Explore more work in {project.data.category}</p>
           </div>
           
-          <div class="related-grid">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px] mx-auto">
             {relatedProjects.map((related: any) => (
-              <a href={`/projects/${related.id}`} class="related-card">
+              <a href={`/projects/${related.id}`} class="related-card group">
                 <div class="related-image-wrapper">
                   <img 
                     src={related.data.image} 
@@ -197,9 +196,9 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     )}
 
     {/* Navigation */}
-    <div class="nav-section">
-      <div class="container">
-        <div class="nav-buttons">
+    <div class="py-16">
+      <div class="max-w-[1280px] mx-auto px-8 max-md:px-5">
+        <div class="flex justify-between items-center flex-wrap gap-4">
           <a href="/projects" class="nav-link back">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M19 12H5M5 12L12 5M5 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -229,9 +228,9 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
   // Lightbox functionality
   function initLightbox() {
     const zoomBtn = document.getElementById('zoomBtn');
-    const mainImage = document.getElementById('mainImage') as HTMLImageElement | null;
+    const mainImage = document.getElementById('mainImage') as HTMLImageElement;
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement | null;
+    const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
     const lightboxClose = document.getElementById('lightboxClose');
     
     if (!zoomBtn || !mainImage || !lightbox || !lightboxImg || !lightboxClose) return;
@@ -264,42 +263,6 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     });
   }
   
-  // Share functionality
-  function initShare() {
-    const shareTwitter = document.getElementById('shareTwitter');
-    const shareLinkedin = document.getElementById('shareLinkedin');
-    const copyLink = document.getElementById('copyLink');
-    const currentUrl = window.location.href;
-    const projectTitle = document.querySelector('.hero-title')?.textContent || '';
-    
-    if (shareTwitter) {
-      shareTwitter.addEventListener('click', () => {
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(projectTitle)}&url=${encodeURIComponent(currentUrl)}`, '_blank');
-      });
-    }
-    
-    if (shareLinkedin) {
-      shareLinkedin.addEventListener('click', () => {
-        window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(projectTitle)}`, '_blank');
-      });
-    }
-    
-    if (copyLink) {
-      copyLink.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(currentUrl);
-          const originalHtml = copyLink.innerHTML;
-          copyLink.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-          setTimeout(() => {
-            copyLink.innerHTML = originalHtml;
-          }, 2000);
-        } catch (err) {
-          console.error('Failed to copy:', err);
-        }
-      });
-    }
-  }
-  
   // Smooth scroll for anchor links
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -317,94 +280,24 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
   }
   
   initLightbox();
-  initShare();
   initSmoothScroll();
   
   document.addEventListener('astro:page-load', () => {
     initLightbox();
-    initShare();
     initSmoothScroll();
   });
 </script>
 
 <style is:global>
   /* ============================================
-     PROJECT DETAIL PAGE - Enhanced Rich Content
+     ONLY ESSENTIAL CSS - Tailwind cannot do these
      ============================================ */
   
   .project-detail {
     position: relative;
   }
   
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 1.25rem;
-    }
-  }
-  
-  /* ===== Hero Section ===== */
-  .hero-section {
-    padding: 4rem 0 2rem;
-  }
-  
-  .hero-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero-breadcrumb a {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .hero-breadcrumb a:hover {
-    color: #A078FF;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-  }
-  
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2rem;
-    }
-  }
-  
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-  
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  
-  /* ===== Hero Image ===== */
-  .hero-image-wrapper {
-    margin: 2rem 0 4rem;
-  }
-  
+  /* Hero Image Container */
   .hero-image-container {
     position: relative;
     max-width: 1200px;
@@ -417,13 +310,6 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     width: 100%;
     height: auto;
     display: block;
-  }
-  
-  .hero-image-caption {
-    text-align: center;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.4);
-    margin-top: 0.75rem;
   }
   
   .zoom-btn {
@@ -449,28 +335,150 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     transform: scale(1.05);
   }
   
-  /* ===== Content Layout ===== */
-  .content-section {
-    padding: 2rem 0 4rem;
-  }
-  
-  .content-layout {
+  /* Sidebar Button */
+  .sidebar-btn {
     display: flex;
-    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
   }
   
-  @media (max-width: 1024px) {
-    .content-layout {
-      flex-direction: column;
-      gap: 3rem;
-    }
+  .sidebar-btn.primary {
+    background: linear-gradient(135deg, #A078FF, #78FFD2);
+    color: #0A0A0E;
   }
   
-  .main-content {
-    flex: 2;
+  .sidebar-btn.primary:hover {
+    transform: translateY(-2px);
+    gap: 0.75rem;
   }
   
-  /* Enhanced Prose Styles for Rich Content */
+  /* Navigation Links */
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    background: rgba(160, 120, 255, 0.1);
+    border-color: rgba(160, 120, 255, 0.3);
+    color: #A078FF;
+  }
+  
+  .nav-link.back:hover {
+    transform: translateX(-4px);
+  }
+  
+  .nav-link.next:hover {
+    transform: translateX(4px);
+  }
+  
+  /* Related Projects */
+  .related-card {
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .related-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .related-image-wrapper {
+    overflow: hidden;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    aspect-ratio: 16 / 10;
+  }
+  
+  .related-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .related-card:hover .related-image {
+    transform: scale(1.05);
+  }
+  
+  .related-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 0.25rem;
+    transition: color 0.2s ease;
+  }
+  
+  .related-card:hover .related-title {
+    color: #A078FF;
+  }
+  
+  .related-category {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+  }
+  
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .lightbox-close:hover {
+    color: #A078FF;
+    transform: scale(1.1);
+  }
+  
+  .lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  
+  /* Prose Styles - Rich content formatting */
   .prose-container {
     font-size: 1.125rem;
     line-height: 1.75;
@@ -578,7 +586,6 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     margin: 2rem 0;
   }
   
-  /* Tables */
   .prose-container table {
     width: 100%;
     border-collapse: collapse;
@@ -598,293 +605,7 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     font-weight: 600;
   }
   
-  /* ===== Project Sidebar ===== */
-  .project-sidebar {
-    flex: 1;
-    position: sticky;
-    top: 100px;
-    align-self: start;
-  }
-  
-  @media (max-width: 1024px) {
-    .project-sidebar {
-      position: static;
-    }
-  }
-  
-  .sidebar-card,
-  .share-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .sidebar-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
-  }
-  
-  .specs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .spec-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.875rem;
-  }
-  
-  .spec-label {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .spec-value {
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
-  }
-  
-  .status-badge {
-    padding: 0.25rem 0.75rem;
-    background: rgba(120, 255, 210, 0.1);
-    border-radius: 50px;
-    color: #78FFD2;
-  }
-  
-  .sidebar-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin: 1rem 0;
-  }
-  
-  .sidebar-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  
-  .sidebar-btn.primary {
-    background: linear-gradient(135deg, #A078FF, #78FFD2);
-    color: #0A0A0E;
-  }
-  
-  .sidebar-btn.primary:hover {
-    transform: translateY(-2px);
-    gap: 0.75rem;
-  }
-  
-  .share-buttons {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .share-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-    color: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .share-btn:hover {
-    transform: translateY(-2px);
-    background: #A078FF;
-    border-color: #A078FF;
-    color: #FFFFFF;
-  }
-  
-  /* ===== Related Projects ===== */
-  .related-section {
-    padding: 4rem 0;
-    background: linear-gradient(180deg, transparent, rgba(160, 120, 255, 0.03), transparent);
-  }
-  
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  
   @media (max-width: 768px) {
-    .section-title {
-      font-size: 1.5rem;
-    }
-  }
-  
-  .section-subtitle {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .related-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .related-card {
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .related-card:hover {
-    transform: translateY(-4px);
-  }
-  
-  .related-image-wrapper {
-    overflow: hidden;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-    aspect-ratio: 16 / 10;
-  }
-  
-  .related-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .related-card:hover .related-image {
-    transform: scale(1.05);
-  }
-  
-  .related-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin-bottom: 0.25rem;
-    transition: color 0.2s ease;
-  }
-  
-  .related-card:hover .related-title {
-    color: #A078FF;
-  }
-  
-  .related-category {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  /* ===== Navigation ===== */
-  .nav-section {
-    padding: 4rem 0;
-  }
-  
-  .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  
-  .nav-link:hover {
-    background: rgba(160, 120, 255, 0.1);
-    border-color: rgba(160, 120, 255, 0.3);
-    color: #A078FF;
-  }
-  
-  .nav-link.back:hover {
-    transform: translateX(-4px);
-  }
-  
-  .nav-link.next:hover {
-    transform: translateX(4px);
-  }
-  
-  /* ===== Lightbox ===== */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 10000;
-  }
-  
-  .lightbox.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .lightbox-close {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background: none;
-    border: none;
-    font-size: 3rem;
-    color: #FFFFFF;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .lightbox-close:hover {
-    color: #A078FF;
-    transform: scale(1.1);
-  }
-  
-  .lightbox-image {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-  }
-  
-  /* ===== Responsive ===== */
-  @media (max-width: 768px) {
-    .hero-meta {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
     .prose-container {
       font-size: 1rem;
     }

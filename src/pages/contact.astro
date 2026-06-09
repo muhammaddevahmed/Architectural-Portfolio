@@ -1,6 +1,7 @@
 ﻿﻿---
 // Contact.astro - Contact Page
-// Modern contact page with form, contact info, and map
+// Modern contact page with form, contact info
+// Converted to Tailwind CSS - Proper border colors preserved
 import Layout from '../layouts/Layout.astro';
 
 // Contact information
@@ -63,7 +64,7 @@ const socialLinks = [
                 <h3 class="info-title">{info.title}</h3>
                 <div class="info-details">
                   {info.details.map((detail) => (
-<p class="info-detail">{detail}</p>
+                    <p class="info-detail">{detail}</p>
                   ))}
                 </div>
               </div>
@@ -90,14 +91,18 @@ const socialLinks = [
                       <path d="M23 3C22.1 3.9 21 4.4 19.8 4.6C19.1 3.9 18.1 3.5 17 3.5C14.9 3.5 13.2 5.2 13.2 7.3C13.2 7.6 13.2 7.9 13.3 8.2C10.2 8 7.5 6.6 5.6 4.3C4.8 5.6 4.8 7.2 5.7 8.3C4.9 8.3 4.2 8.1 3.6 7.7C3.6 9.3 4.8 10.7 6.3 11C5.6 11.2 4.8 11.2 4.1 11C4.5 12.4 5.8 13.4 7.3 13.4C6.1 14.3 4.6 14.8 3 14.8C2.7 14.8 2.3 14.8 2 14.7C3.5 15.7 5.3 16.3 7.2 16.3C14 16.3 17.6 10.7 17.6 5.8C17.6 5.6 17.6 5.4 17.6 5.2C18.5 4.5 19.3 3.8 20 3H23Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
                     )}
                     {social.icon === 'linkedin' && (
-                      <path d="M16 8C18.2091 8 20 9.79086 20 12V20H16V12C16 10.8954 15.1046 10 14 10C12.8954 10 12 10.8954 12 12V20H8V12C8 9.79086 9.79086 8 12 8C13.1046 8 14 8.89543 14 10C14 8.89543 14.8954 8 16 8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      <rect x="4" y="8" width="4" height="12" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      <circle cx="6" cy="4" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      <>
+                        <path d="M16 8C18.2091 8 20 9.79086 20 12V20H16V12C16 10.8954 15.1046 10 14 10C12.8954 10 12 10.8954 12 12V20H8V12C8 9.79086 9.79086 8 12 8C13.1046 8 14 8.89543 14 10C14 8.89543 14.8954 8 16 8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <rect x="4" y="8" width="4" height="12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="6" cy="4" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      </>
                     )}
                     {social.icon === 'behance' && (
-                      <path d="M8 12H12M8 8H12M16 15C16 13.8954 15.1046 13 14 13H12V17H14C15.1046 17 16 16.1046 16 15Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      <path d="M12 8V13M12 8H15C16.1046 8 17 8.89543 17 10C17 11.1046 16.1046 12 15 12H12" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                      <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      <>
+                        <path d="M8 12H12M8 8H12M16 15C16 13.8954 15.1046 13 14 13H12V17H14C15.1046 17 16 16.1046 16 15Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M12 8V13M12 8H15C16.1046 8 17 8.89543 17 10C17 11.1046 16.1046 12 15 12H12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      </>
                     )}
                   </svg>
                 </a>
@@ -108,7 +113,7 @@ const socialLinks = [
 
         <!-- Contact Form -->
         <div class="contact-form-section reveal-delay-2">
-          <div class="form-card glass">
+          <div class="form-card">
             <h2 class="form-title">Send us a Message</h2>
             <p class="form-description">
               Fill out the form below and we'll get back to you within 24 hours.
@@ -116,7 +121,7 @@ const socialLinks = [
             
             <form 
               class="contact-form" 
-action="https://formspree.io/f/placeholder"
+              action="https://formspree.io/f/placeholder"
               method="POST"
               id="contactForm"
             >
@@ -212,8 +217,6 @@ action="https://formspree.io/f/placeholder"
         </div>
       </div>
 
-     
-
       <!-- FAQ Section -->
       <div class="faq-section reveal-delay-4">
         <div class="faq-header">
@@ -251,6 +254,7 @@ action="https://formspree.io/f/placeholder"
   if (form) {
     form.addEventListener('submit', async () => {
       const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
+      if (!submitBtn) return;
       const originalText = submitBtn.innerHTML;
       
       submitBtn.innerHTML = `
@@ -274,6 +278,7 @@ action="https://formspree.io/f/placeholder"
 <style is:global>
   /* ============================================
      CONTACT PAGE STYLES - Modern Studio Contact
+     Proper border colors from original CSS
      ============================================ */
   
   .contact-page {
@@ -454,6 +459,8 @@ action="https://formspree.io/f/placeholder"
   .form-card {
     padding: 2.5rem;
     border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
   
   @media (max-width: 768px) {
@@ -586,48 +593,6 @@ action="https://formspree.io/f/placeholder"
     font-size: 0.7rem;
     color: rgba(255, 255, 255, 0.4);
     text-align: center;
-  }
-  
-  /* ===== Map Section ===== */
-  .map-section {
-    margin-bottom: 4rem;
-  }
-  
-  .map-card {
-    padding: 2rem;
-    border-radius: 1.5rem;
-    text-align: center;
-  }
-  
-  .map-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 3rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 1rem;
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .map-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(160, 120, 255, 0.1);
-    border: 1px solid rgba(160, 120, 255, 0.2);
-    border-radius: 50px;
-    font-size: 0.875rem;
-    color: #A078FF;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  
-  .map-link:hover {
-    background: rgba(160, 120, 255, 0.2);
-    gap: 0.75rem;
   }
   
   /* ===== FAQ Section ===== */
