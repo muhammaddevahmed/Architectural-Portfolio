@@ -8,10 +8,11 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
   noPadding?: boolean;
 }
 
-const { title, description = "High-end architecture studio portfolio", noPadding = false } = Astro.props;
+const { title, description = "High-end architecture studio portfolio", image = "/og-image.jpg", noPadding = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,6 +32,19 @@ const { title, description = "High-end architecture studio portfolio", noPadding
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <title>{title}</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
     
     <style is:global>
       /* Base font settings */

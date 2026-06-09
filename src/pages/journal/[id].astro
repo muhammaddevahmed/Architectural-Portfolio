@@ -30,7 +30,11 @@ const readTime = post.data.readTime || Math.ceil((post.body?.length || 0) / 200 
 const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
 ---
 
-<Layout title={`${post.data.title} | STUDIO`} description={post.data.description}>
+<Layout 
+  title={`${post.data.title} | STUDIO`} 
+  description={post.data.description}
+  image={post.data.heroImage}
+>
   <article class="journal-detail">
     
     {/* Hero Section */}

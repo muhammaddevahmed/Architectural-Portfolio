@@ -36,7 +36,11 @@ const contentLength = project.body?.length || 0;
 const readTime = Math.max(3, Math.ceil(contentLength / 2000));
 ---
 
-<Layout title={`${project.data.title} | STUDIO`} description={project.data.description}>
+<Layout 
+  title={`${project.data.title} | STUDIO`} 
+  description={project.data.description}
+  image={project.data.image}
+>
   
   <article class="project-detail">
     
