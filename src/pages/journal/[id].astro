@@ -68,12 +68,22 @@ const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
       {/* Hero Image */}
       {post.data.heroImage && (
         <div class="hero-image">
-          <img 
-            src={post.data.heroImage} 
-            alt={post.data.title}
-            loading="eager"
-            class="w-full h-auto rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
-          />
+          <div class="hero-image-container">
+            <img 
+              src={post.data.heroImage} 
+              alt={post.data.title}
+              loading="eager"
+              class="w-full h-auto rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.3)] block"
+              id="mainImage"
+            />
+            <button class="zoom-btn" id="zoomBtn" aria-label="Zoom image">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M15 15L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 10H12M10 8V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
           {post.data.imageCaption && (
             <div class="image-caption">{post.data.imageCaption}</div>
           )}
@@ -152,56 +162,117 @@ const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
         </div>
       </div>
     </div>
+
+    {/* Lightbox Modal */}
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <img id="lightboxImg" class="lightbox-image" alt="Enlarged view" />
+    </div>
     
   </article>
 </Layout>
 
 <script>
-  // Table of contents scroll spy
-  const tocLinks = document.querySelectorAll('.toc-link');
-  const headings = document.querySelectorAll('.prose-container h2, .prose-container h3');
-  
-  if (tocLinks.length > 0 && headings.length > 0) {
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -20% 0px'
-    };
+  function initJournal() {
+    // Table of contents scroll spy
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const headings = document.querySelectorAll('.prose-container h2, .prose-container h3');
     
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          tocLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('data-heading-id') === id) {
-              link.classList.add('active');
-            }
-          });
+    if (tocLinks.length > 0 && headings.length > 0) {
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -20% 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            tocLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('data-heading-id') === id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+      
+      headings.forEach(heading => {
+        if (heading.id) {
+          observer.observe(heading);
         }
       });
-    }, observerOptions);
+    }
     
-    headings.forEach(heading => {
-      if (heading.id) {
-        observer.observe(heading);
+    // Smooth scroll for TOC links
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-heading-id');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          history.pushState(null, '', `#${targetId}`);
+        }
+      });
+    });
+  }
+  
+  function initLightbox() {
+    const zoomBtn = document.getElementById('zoomBtn');
+    const mainImage = document.getElementById('mainImage') as HTMLImageElement;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
+    const lightboxClose = document.getElementById('lightboxClose');
+    
+    if (!lightbox || !lightboxImg || !lightboxClose) return;
+    
+    function openLightbox(src: string) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    if (zoomBtn && mainImage) {
+      zoomBtn.addEventListener('click', () => {
+        openLightbox(mainImage.src);
+      });
+    }
+    
+    document.querySelectorAll('.prose-container img').forEach(img => {
+      img.addEventListener('click', () => {
+        openLightbox((img as HTMLImageElement).src);
+      });
+    });
+    
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
       }
     });
   }
   
-  // Smooth scroll for TOC links
-  tocLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('data-heading-id');
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        history.pushState(null, '', `#${targetId}`);
-      }
-    });
+  initJournal();
+  initLightbox();
+  
+  document.addEventListener('astro:page-load', () => {
+    initJournal();
+    initLightbox();
   });
 </script>
 
@@ -269,6 +340,35 @@ const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  .hero-image-container {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  
+  .zoom-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .zoom-btn:hover {
+    background: rgba(160, 120, 255, 0.8);
+    transform: scale(1.05);
   }
   
   .image-caption {
@@ -452,6 +552,7 @@ const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
     max-width: 100%;
     height: auto;
     margin: 1.5rem 0;
+    cursor: zoom-in;
   }
   
   .prose-container ul,
@@ -547,6 +648,49 @@ const tocHeadings = headings?.filter(h => h.depth === 2 || h.depth === 3) || [];
     border-color: rgba(160, 120, 255, 0.2);
     color: #A078FF;
     transform: translateX(-4px);
+  }
+  
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10000;
+  }
+  
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .lightbox-close:hover {
+    color: #A078FF;
+    transform: scale(1.1);
+  }
+  
+  .lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
   }
   
   @media (max-width: 768px) {

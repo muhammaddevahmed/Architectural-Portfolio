@@ -233,7 +233,7 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
     const lightboxClose = document.getElementById('lightboxClose');
     
-    if (!zoomBtn || !mainImage || !lightbox || !lightboxImg || !lightboxClose) return;
+    if (!lightbox || !lightboxImg || !lightboxClose) return;
     
     function openLightbox(src: string) {
       lightboxImg.src = src;
@@ -246,8 +246,17 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
       document.body.style.overflow = '';
     }
     
-    zoomBtn.addEventListener('click', () => {
-      openLightbox(mainImage.src);
+    if (zoomBtn && mainImage) {
+      zoomBtn.addEventListener('click', () => {
+        openLightbox(mainImage.src);
+      });
+    }
+    
+    // Add lightbox to all images in the prose container
+    document.querySelectorAll('.prose-container img').forEach(img => {
+      img.addEventListener('click', () => {
+        openLightbox((img as HTMLImageElement).src);
+      });
     });
     
     lightboxClose.addEventListener('click', closeLightbox);
@@ -577,6 +586,7 @@ const readTime = Math.max(3, Math.ceil(contentLength / 2000));
     max-width: 100%;
     height: auto;
     margin: 1.5rem 0;
+    cursor: zoom-in;
   }
   
   .prose-container hr {
